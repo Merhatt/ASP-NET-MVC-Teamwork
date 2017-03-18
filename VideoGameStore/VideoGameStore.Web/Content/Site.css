@@ -22,3 +22,21 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.main-page {
+    padding-top: 20px;
+}
+
+.page-title {
+    text-align: center;
+}
+
+.my-navlink {
+    color: lightgreen;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.my-navlink:hover {
+    color: white;
+}

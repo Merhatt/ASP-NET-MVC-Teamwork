@@ -40,7 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factories\Contracts\IGameFactory.cs" />
+    <Compile Include="Factories\GameFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VideoGameStore.Data.Models\VideoGameStore.Data.Models.csproj">
+      <Project>{9C6B7785-C994-45EC-9F88-D4491CFAF243}</Project>
+      <Name>VideoGameStore.Data.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -78,3 +78,9 @@ C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\Video
 C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Web\obj\Debug\VideoGameStore.Web.csprojResolveAssemblyReference.cache
 C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Web\obj\Debug\VideoGameStore.Web.dll
 C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Web\obj\Debug\VideoGameStore.Web.pdb
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Web\bin\VideoGameStore.Data.dll
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Web\bin\VideoGameStore.Data.Models.dll
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Web\bin\VideoGameStore.Data.Models.pdb
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Web\bin\VideoGameStore.Data.pdb
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Web\bin\VideoGameStore.Utils.dll
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Web\bin\VideoGameStore.Utils.pdb

@@ -1,0 +1,5 @@
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Services\bin\Debug\VideoGameStore.Services.dll
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Services\bin\Debug\VideoGameStore.Services.pdb
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Services\obj\Debug\VideoGameStore.Services.csprojResolveAssemblyReference.cache
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Services\obj\Debug\VideoGameStore.Services.dll
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Services\obj\Debug\VideoGameStore.Services.pdb
