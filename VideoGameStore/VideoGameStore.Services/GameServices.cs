@@ -69,5 +69,43 @@ namespace VideoGameStore.Services
             this.repository.Add(game);
             this.unitOfWork.Commit();
         }
+
+        public IEnumerable<Game> GetAll()
+        {
+            return this.repository.All();
+        }
+
+        public IEnumerable<Game> GetAll(ICollection<Category> categories)
+        {
+            if (categories == null)
+            {
+                throw new NullReferenceException("categories cannot be null");
+            }
+
+            IEnumerable<Game> allGames = GetAll();
+
+            ICollection<Game> allGamesWithCategories = new HashSet<Game>();
+
+            foreach (Game game in allGames)
+            {
+                bool areAllCategoriesMatching = true;
+
+                foreach (Category category in categories)
+                {
+                    if (game.Categories.FirstOrDefault(x => x.Name == category.Name) == null)
+                    {
+                        areAllCategoriesMatching = false;
+                        break;
+                    }
+                }
+
+                if (areAllCategoriesMatching)
+                {
+                    allGamesWithCategories.Add(game);
+                }
+            }
+
+            return allGamesWithCategories;
+        }
     }
 }

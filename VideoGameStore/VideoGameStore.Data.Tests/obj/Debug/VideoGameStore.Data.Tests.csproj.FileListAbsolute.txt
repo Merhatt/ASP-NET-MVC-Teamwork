@@ -1,0 +1,11 @@
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\bin\Debug\VideoGameStore.Data.Tests.dll
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\bin\Debug\VideoGameStore.Data.Tests.pdb
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\bin\Debug\nunit.framework.dll
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\bin\Debug\nunit.framework.xml
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\obj\Debug\VideoGameStore.Data.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\obj\Debug\VideoGameStore.Data.Tests.dll
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\obj\Debug\VideoGameStore.Data.Tests.pdb
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\bin\Debug\Castle.Core.dll
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\bin\Debug\Moq.dll
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\bin\Debug\Castle.Core.xml
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\bin\Debug\Moq.xml
