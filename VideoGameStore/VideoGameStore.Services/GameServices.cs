@@ -75,9 +75,9 @@ namespace VideoGameStore.Services
             return this.repository.All();
         }
 
-        public IEnumerable<Game> GetAll(ICollection<Category> categories)
+        public IEnumerable<Game> GetAll(IEnumerable<Category> categories)
         {
-            if (categories == null)
+            if (categories == null || categories.Count() == 0)
             {
                 throw new NullReferenceException("categories cannot be null");
             }
@@ -106,6 +106,20 @@ namespace VideoGameStore.Services
             }
 
             return allGamesWithCategories;
+        }
+
+        public IEnumerable<Game> GetAll(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                throw new NullReferenceException("name cannot be null or empty");
+            }
+
+            IEnumerable<Game> allGames = GetAll()
+                .Where(x => x.Name.ToLower().Contains(name.ToLower()) || 
+                name.ToLower().Contains(x.Name.ToLower()));
+     
+            return allGames;
         }
     }
 }
