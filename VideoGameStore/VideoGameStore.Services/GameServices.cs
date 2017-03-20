@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using VideoGameStore.Data.Contracts;
 using VideoGameStore.Data.Models;
+using VideoGameStore.Services.Contracts;
 using VideoGameStore.Utils.Factories.Contracts;
 
 namespace VideoGameStore.Services
 {
-    public class GameServices
+    public class GameServices : IGameServices
     {
         private IGameFactory gameFactory;
         private IRepository<Game> repository;

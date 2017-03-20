@@ -192,14 +192,19 @@
     <Compile Include="App_Start\ApplicationUserManager.cs" />
     <Compile Include="App_Start\NinjectModules\DbNinjectModule.cs" />
     <Compile Include="App_Start\NinjectModules\FactoriesNinjectModule.cs" />
+    <Compile Include="App_Start\NinjectModules\ServicesNinjectModule.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GameInfoController.cs" />
+    <Compile Include="Controllers\GamesPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\GameInfoViewModel.cs" />
+    <Compile Include="Models\GamesPageViewModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -242,9 +247,12 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Game\GameInfo.cshtml" />
+    <None Include="Views\Game\GamesPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\GameInfo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -262,6 +270,10 @@
     <ProjectReference Include="..\VideoGameStore.Data\VideoGameStore.Data.csproj">
       <Project>{1390232A-B6B5-486D-B943-67A20117428A}</Project>
       <Name>VideoGameStore.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VideoGameStore.Services\VideoGameStore.Services.csproj">
+      <Project>{E413C349-1B50-45F2-A292-5663D24D51A9}</Project>
+      <Name>VideoGameStore.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\VideoGameStore.Utils\VideoGameStore.Utils.csproj">
       <Project>{A9BC35A8-3701-4822-9634-3D37061EABFE}</Project>

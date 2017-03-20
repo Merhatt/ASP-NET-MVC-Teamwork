@@ -84,3 +84,5 @@ C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\Video
 C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Web\bin\VideoGameStore.Data.pdb
 C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Web\bin\VideoGameStore.Utils.dll
 C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Web\bin\VideoGameStore.Utils.pdb
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Web\bin\VideoGameStore.Services.dll
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Web\bin\VideoGameStore.Services.pdb

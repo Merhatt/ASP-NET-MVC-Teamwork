@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Game";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model VideoGameStore.Web.Models.GamesPageViewModel
+
+
+<div class="search-box-panel">
+    @using (Html.BeginForm("SearchByName", "GamesPage", FormMethod.Post))
+    {
+        <div class="form-group search-box">
+            @Html.TextBoxFor(x => x.SearchName, new { @class = "form-control search-input left" })
+
+            <button type="submit" class="btn btn-success left search-btn">Search</button>
+            <div class="clear"></div>
+        </div>
+    }
+</div>
+
+<div class="games">
+    @foreach (var game in this.Model.Games)
+    {
+        <div class="game-container">
+            <div class="game-title">
+                <h3><a class="" href="/gameinfo/@game.Id">@game.Name</a></h3>
+            </div>
+            <div>
+                <img class="game-img" src="@game.ImageUrl" alt="game image" />
+            </div>
+            <div class="text-center-align">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    using (Html.BeginForm("AddToCart", "GamesPage", new { gameId = game.Id }, FormMethod.Post))
+                    {
+                        <button type="submit" class="btn btn-success add">Add</button>
+                    }
+                }
+            </div>
+
+            <div class="clear"></div>
+        </div>
+    }
+</div>

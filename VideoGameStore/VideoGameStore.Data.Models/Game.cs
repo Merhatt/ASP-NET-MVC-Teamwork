@@ -27,6 +27,8 @@ namespace VideoGameStore.Data.Models
 
         public string Description { get; set; }
 
+        public DateTime DateAdded { get; set; }
+
         public string ImageUrl { get; set; }
 
         public ICollection<Category> Categories
