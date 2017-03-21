@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "AddGame";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model VideoGameStore.Web.Models.AddGameViewModel
+
+<h2>Add Game</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label for="name">Name:</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", id = "name" })
+    </div>
+    <div class="form-group">
+        <label for="description">Description:</label>
+        @Html.TextAreaFor(x => x.Description, new { @class = "form-control", id = "description" })
+    </div>
+    <div class="form-group">
+        <label for="price">Price:</label>
+        @Html.TextBoxFor(x => x.Price, new { @class = "form-control", id = "price", type = "number" })
+    </div>
+    <div class="form-group">
+        <label for="imageUrl">Image Url:</label>
+        @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control", id = "imageUrl" })
+    </div>
+    <div class="form-group">
+        <label for="dateCreated">Image Url:</label>
+        @Html.TextBoxFor(x => x.DateCreated, new { @class = "form-control", type = "date", id = "dateCreated" })
+    </div>
+    <div>
+        @for (int i = 0; i < this.Model.CheckBoxes.Count; i++)
+        {
+            @Html.CheckBoxFor(x => x.CheckBoxes[i].Checked)
+        }
+    </div>
+}

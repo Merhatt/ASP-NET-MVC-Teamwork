@@ -35,7 +35,8 @@ namespace VideoGameStore.Web.Controllers
                 new Game()
                 {
                     Name = "Battlefield 1",
-                    Id = 1
+                    Id = 1,
+                    ImageUrl = "https://upload.wikimedia.org/wikipedia/en/f/fc/Battlefield_1_cover_art.jpg"
                 }
             };
 
@@ -50,6 +51,7 @@ namespace VideoGameStore.Web.Controllers
             return View("~/Views/Game/GamesPage.cshtml", model);
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult AddToCart(int gameId)
         {

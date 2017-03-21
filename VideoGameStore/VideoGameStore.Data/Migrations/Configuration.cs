@@ -1,5 +1,6 @@
 namespace VideoGameStore.Data.Migrations
 {
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -14,20 +15,18 @@ namespace VideoGameStore.Data.Migrations
             ContextKey = "VideoGameStore.Data.VideoGameDBContext";
         }
 
-        protected override void Seed(VideoGameStore.Data.VideoGameDBContext context)
+        protected override void Seed(VideoGameDBContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            string[] roles = { "Admin", "User" };
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            for (int i = 0; i < roles.Length; i++)
+            {
+                var role = roles[i];
+                if (context.Roles.FirstOrDefault(x => x.Name == role) == null)
+                {
+                    context.Roles.Add(new IdentityRole(roles[i]));
+                }
+            }
         }
     }
 }
