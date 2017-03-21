@@ -8,7 +8,14 @@
 
 <h2>Add Game</h2>
 
-@using (Html.BeginForm())
+@if (this.Model.ErrorText != null && this.Model.ErrorText.Length > 0)
+{
+    <div class="alert alert-danger">
+        <strong>Error!</strong> @this.Model.ErrorText
+    </div>
+}
+
+@using (Html.BeginForm("AddGame", "Admin"))
 {
     <div class="form-group">
         <label for="name">Name:</label>
@@ -27,13 +34,24 @@
         @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control", id = "imageUrl" })
     </div>
     <div class="form-group">
-        <label for="dateCreated">Image Url:</label>
+        <label for="dateCreated">Date Created:</label>
         @Html.TextBoxFor(x => x.DateCreated, new { @class = "form-control", type = "date", id = "dateCreated" })
     </div>
     <div>
+        <h3>Select categories</h3>
         @for (int i = 0; i < this.Model.CheckBoxes.Count; i++)
         {
-            @Html.CheckBoxFor(x => x.CheckBoxes[i].Checked)
+            <div>
+                @Html.CheckBoxFor(x => x.CheckBoxes[i].Checked, new { id = "cb" + i })
+                @Html.HiddenFor(m => m.CheckBoxes[i].Id)
+                @Html.HiddenFor(m => m.CheckBoxes[i].Name)
+                <label for="@("cb" + i)">@this.Model.CheckBoxes[i].Name</label>
+            </div>
         }
     </div>
+    <div>
+        <button class="btn btn-success" type="submit">Add Game</button>
+    </div>
 }
+
+<div class="clear"></div>

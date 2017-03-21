@@ -42,7 +42,11 @@ namespace VideoGameStore.Utils.Factories
             game.Price = price;
             game.Description = description;
             game.ImageUrl = imageUrl;
-            game.Categories = categories;
+
+            foreach (var cat in categories)
+            {
+                game.Categories.Add(cat);
+            }
 
             return game;
         }

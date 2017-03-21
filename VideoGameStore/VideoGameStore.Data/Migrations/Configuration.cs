@@ -1,6 +1,7 @@
 namespace VideoGameStore.Data.Migrations
 {
     using Microsoft.AspNet.Identity.EntityFramework;
+    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -27,6 +28,29 @@ namespace VideoGameStore.Data.Migrations
                     context.Roles.Add(new IdentityRole(roles[i]));
                 }
             }
+
+            string[] categories = 
+            {
+                "Action",
+                "FPS",
+                "RPG",
+                "MMO",
+                "Strategy",
+                "Multiplayer",
+                "Singleplayer"
+            };
+
+            for (int i = 0; i < categories.Length; i++)
+            {
+                var category = categories[i];
+
+                if (context.Categories.FirstOrDefault(x => x.Name == category) == null)
+                {
+                    context.Categories.Add(new Category() { Name = category });
+                }
+            }
+
+            context.SaveChanges();
         }
     }
 }

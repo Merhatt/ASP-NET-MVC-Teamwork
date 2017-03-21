@@ -8,6 +8,8 @@ namespace VideoGameStore.Web.Models
 {
     public class AddGameViewModel
     {
+        public string ErrorText { get; set; }
+
         public string Name { get; set; }
 
         public decimal Price { get; set; }
@@ -20,6 +22,6 @@ namespace VideoGameStore.Web.Models
 
         public string ImageUrl { get; set; }
 
-        public IList<CheckBoxCategoryModel> CheckBoxes;
+        public IList<CheckBoxCategoryModel> CheckBoxes { get; set; }
     }
 }

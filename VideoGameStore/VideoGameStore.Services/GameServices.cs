@@ -122,5 +122,24 @@ namespace VideoGameStore.Services
      
             return allGames;
         }
+
+        public IEnumerable<Game> GetAll(IEnumerable<Category> categories, string name)
+        {
+            if (categories == null || categories.Count() == 0)
+            {
+                throw new NullReferenceException("categories cannot be null");
+            }
+
+            if (string.IsNullOrEmpty(name))
+            {
+                throw new NullReferenceException("name cannot be null or empty");
+            }
+
+            IEnumerable<Game> all = this.GetAll(categories)
+                .Where(x => x.Name.ToLower().Contains(name.ToLower()) ||
+                name.ToLower().Contains(x.Name.ToLower()));
+
+            return all;
+        }
     }
 }

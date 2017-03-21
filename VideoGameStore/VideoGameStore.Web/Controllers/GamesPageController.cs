@@ -13,15 +13,22 @@ namespace VideoGameStore.Web.Controllers
     public class GamesPageController : Controller
     {
         private IGameServices gameServices;
+        private ICategoryServices categoryServices;
 
-        public GamesPageController(IGameServices gameServices)
+        public GamesPageController(IGameServices gameServices, ICategoryServices categoryServices)
         {
             if (gameServices == null)
             {
                 throw new NullReferenceException("gameServices cannot be null");
             }
 
+            if (categoryServices == null)
+            {
+                throw new NullReferenceException("categoryServices cannot be null");
+            }
+
             this.gameServices = gameServices;
+            this.categoryServices = categoryServices;
         }
 
         [HttpGet]
@@ -30,15 +37,20 @@ namespace VideoGameStore.Web.Controllers
             GamesPageViewModel model = new GamesPageViewModel();
             model.Games = this.gameServices.GetAll();
 
-            model.Games = new List<Game>()
+            IEnumerable<Category> allCategories = this.categoryServices.GetAll();
+
+            IList<CheckBoxCategoryModel> checkBoxes = new List<CheckBoxCategoryModel>();
+
+            foreach (var category in allCategories)
             {
-                new Game()
+                checkBoxes.Add(new CheckBoxCategoryModel()
                 {
-                    Name = "Battlefield 1",
-                    Id = 1,
-                    ImageUrl = "https://upload.wikimedia.org/wikipedia/en/f/fc/Battlefield_1_cover_art.jpg"
-                }
-            };
+                    Name = category.Name,
+                    Id = category.Id
+                });
+            }
+
+            model.CheckBoxes = checkBoxes;
 
             return View("~/Views/Game/GamesPage.cshtml", model);
         }
@@ -46,7 +58,38 @@ namespace VideoGameStore.Web.Controllers
         [HttpPost]
         public ActionResult SearchByName(GamesPageViewModel model)
         {
-            model.Games = this.gameServices.GetAll(model.SearchName);
+            bool isSearchEmpty = string.IsNullOrEmpty(model.SearchName);
+
+            ICollection<Category> categories = new List<Category>();
+
+            foreach (var cat in model.CheckBoxes)
+            {
+                if (cat.Checked)
+                {
+                    Category categoryToAdd = this.categoryServices.GetById(cat.Id);
+
+                    categories.Add(categoryToAdd);
+                }
+            }
+
+            bool isCategoryEmpty = categories.Count() == 0;
+
+            if (isSearchEmpty == false && isCategoryEmpty == false)
+            {
+                model.Games = this.gameServices.GetAll(categories, model.SearchName);
+            }
+            else if (isSearchEmpty == false)
+            {
+                model.Games = this.gameServices.GetAll(model.SearchName);
+            }
+            else if (isCategoryEmpty == false)
+            {
+                model.Games = this.gameServices.GetAll(categories);
+            }
+            else
+            {
+                model.Games = this.gameServices.GetAll();
+            }
 
             return View("~/Views/Game/GamesPage.cshtml", model);
         }

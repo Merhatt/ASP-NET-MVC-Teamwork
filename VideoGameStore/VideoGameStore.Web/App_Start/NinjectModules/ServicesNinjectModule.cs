@@ -13,6 +13,7 @@ namespace VideoGameStore.Web.App_Start.NinjectModules
         public override void Load()
         {
             this.Kernel.Bind<IGameServices>().To<GameServices>();
+            this.Kernel.Bind<ICategoryServices>().To<CategoryServices>();
         }
     }
 }

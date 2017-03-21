@@ -10,8 +10,28 @@
     @using (Html.BeginForm("SearchByName", "GamesPage", FormMethod.Post))
     {
         <div class="form-group search-box">
-            @Html.TextBoxFor(x => x.SearchName, new { @class = "form-control search-input left" })
+            <h3>Enter game name</h3>
+            <div>
+                @Html.TextBoxFor(x => x.SearchName, new { @class = "form-control search-input left" })
+            </div>
+            <div>
+                <br />
+                <br />
+                <h3>Select categories</h3>
+                @for (int i = 0; i < this.Model.CheckBoxes.Count; i++)
+                {
+                    <div class="checkbox-category left">
+                        @Html.CheckBoxFor(x => x.CheckBoxes[i].Checked, new { id = "cb" + i })
+                        @Html.HiddenFor(m => m.CheckBoxes[i].Id)
+                        @Html.HiddenFor(m => m.CheckBoxes[i].Name)
+                        <label for="@("cb" + i)">@this.Model.CheckBoxes[i].Name</label>
+                    </div>
+                }
 
+                <div class="clear"></div>
+            </div>
+
+            <br />
             <button type="submit" class="btn btn-success left search-btn">Search</button>
             <div class="clear"></div>
         </div>
@@ -21,12 +41,15 @@
 <div class="games">
     @foreach (var game in this.Model.Games)
     {
-        <div class="game-container">
+        <div class="game-container left">
             <div class="game-title">
                 <h3><a class="" href="/gameinfo/@game.Id">@game.Name</a></h3>
             </div>
             <div>
                 <img class="game-img" src="@game.ImageUrl" alt="game image" />
+            </div>
+            <div>
+                <h5>Price: @game.Price$</h5>
             </div>
             <div class="text-center-align">
                 @if (User.Identity.IsAuthenticated)

@@ -16,5 +16,7 @@ namespace VideoGameStore.Services.Contracts
         IEnumerable<Game> GetAll(IEnumerable<Category> categories);
 
         IEnumerable<Game> GetAll(string name);
+
+        IEnumerable<Game> GetAll(IEnumerable<Category> categories, string name);
     }
 }
