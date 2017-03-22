@@ -7,6 +7,7 @@ using VideoGameStore.Data.Models;
 using VideoGameStore.Services;
 using VideoGameStore.Services.Contracts;
 using VideoGameStore.Web.Models;
+using VideoGameStore.Web.Models.Factories.Contracts;
 
 namespace VideoGameStore.Web.Controllers
 {
@@ -14,8 +15,11 @@ namespace VideoGameStore.Web.Controllers
     {
         private IGameServices gameServices;
         private ICategoryServices categoryServices;
+        private ICheckBoxCategoryModelFactory checkBoxCategoryModelFactory;
+        private IGamesPageViewModelFactory gamesPageViewModelFactory;
 
-        public GamesPageController(IGameServices gameServices, ICategoryServices categoryServices)
+        public GamesPageController(IGameServices gameServices, ICategoryServices categoryServices, ICheckBoxCategoryModelFactory checkBoxCategoryModelFactory,
+            IGamesPageViewModelFactory gamesPageViewModelFactory)
         {
             if (gameServices == null)
             {
@@ -27,15 +31,28 @@ namespace VideoGameStore.Web.Controllers
                 throw new NullReferenceException("categoryServices cannot be null");
             }
 
+            if (checkBoxCategoryModelFactory == null)
+            {
+                throw new NullReferenceException("checkBoxCategoryModelFactory cannot be null");
+            }
+
+            if (gamesPageViewModelFactory == null)
+            {
+                throw new NullReferenceException("gamesPageViewModelFactory cannot be null");
+            }
+
             this.gameServices = gameServices;
             this.categoryServices = categoryServices;
+            this.checkBoxCategoryModelFactory = checkBoxCategoryModelFactory;
+            this.gamesPageViewModelFactory = gamesPageViewModelFactory;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            GamesPageViewModel model = new GamesPageViewModel();
-            model.Games = this.gameServices.GetAll();
+            IEnumerable<Game> allGames = this.gameServices.GetAll();
+
+            GamesPageViewModel model = this.gamesPageViewModelFactory.Create(allGames);
 
             IEnumerable<Category> allCategories = this.categoryServices.GetAll();
 
@@ -43,11 +60,9 @@ namespace VideoGameStore.Web.Controllers
 
             foreach (var category in allCategories)
             {
-                checkBoxes.Add(new CheckBoxCategoryModel()
-                {
-                    Name = category.Name,
-                    Id = category.Id
-                });
+                CheckBoxCategoryModel categoryToAdd = this.checkBoxCategoryModelFactory.Create(category.Id, category.Name);
+
+                checkBoxes.Add(categoryToAdd);
             }
 
             model.CheckBoxes = checkBoxes;

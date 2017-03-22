@@ -150,7 +150,7 @@ namespace VideoGameStore.Utils.Tests.Factories
             Assert.AreEqual(price, game.Price);
             Assert.AreEqual(description, game.Description);
             Assert.AreEqual(imageUrl, game.ImageUrl);
-            Assert.AreSame(categories, game.Categories);
+            Assert.AreEqual(categories, game.Categories);
         }
     }
 }

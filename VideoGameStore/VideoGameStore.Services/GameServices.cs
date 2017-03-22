@@ -83,7 +83,7 @@ namespace VideoGameStore.Services
                 throw new NullReferenceException("categories cannot be null");
             }
 
-            IEnumerable<Game> allGames = GetAll();
+            IEnumerable<Game> allGames = GetAll().ToList();
 
             ICollection<Game> allGamesWithCategories = new HashSet<Game>();
 
@@ -140,6 +140,18 @@ namespace VideoGameStore.Services
                 name.ToLower().Contains(x.Name.ToLower()));
 
             return all;
+        }
+
+        public Game GetById(int id)
+        {
+            if (id < 0)
+            {
+                throw new NullReferenceException("id cannot be less than 0");
+            }
+
+            Game game = this.repository.GetById(id);
+
+            return game;
         }
     }
 }

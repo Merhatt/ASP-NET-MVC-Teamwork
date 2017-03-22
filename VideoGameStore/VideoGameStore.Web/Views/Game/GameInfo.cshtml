@@ -4,5 +4,51 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Game Info</h2>
+@model VideoGameStore.Web.Models.GameInfoViewModel
 
+<div>
+    <h1>@this.Html.Encode(this.Model.Name)</h1>
+</div>
+<div>
+    <img src="@this.Model.ImageUrl" alt="game cover" class="image-url"/>
+</div>
+<div>
+    <h4>Price: @this.Model.Price$</h4>
+</div>
+<div>
+    <h4>Description: @this.Html.Encode(this.Model.Description)</h4>
+</div>
+<div>
+    <h4>Categories: </h4>
+    @foreach (var cat in this.Model.Categories)
+    {
+        <div class="left ccategory">
+            @Html.Encode(cat.Name)
+        </div>
+    }
+
+    <div class="clear"></div>
+</div>
+<div>
+    <h4>Supported platforms: </h4>
+    @foreach (var platform in this.Model.SuportedPlatforms)
+    {
+        <div class="left ccategory">
+            @Html.Encode(platform.Name)
+        </div>
+    }
+
+    <div class="clear"></div>
+</div>
+<div>
+    <h4>Reviews:</h4>
+    @foreach (var review in this.Model.Reviews)
+    {
+        <div>
+            <h6>User: @Html.Encode(review.Author)</h6>
+            <p>
+                @Html.Encode(review.Comment)
+            </p>
+        </div>
+    }
+</div>

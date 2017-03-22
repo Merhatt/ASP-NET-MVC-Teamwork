@@ -206,10 +206,25 @@
     </Compile>
     <Compile Include="Models\AddGameViewModel.cs" />
     <Compile Include="Models\CheckBoxCategoryModel.cs" />
+    <Compile Include="Models\Factories\CheckBoxCategoryModelFactory.cs" />
+    <Compile Include="Models\Factories\Contracts\ICheckBoxCategoryModelFactory.cs" />
+    <Compile Include="Models\Factories\Contracts\IGameInfoViewModelFactory.cs" />
+    <Compile Include="Models\Factories\Contracts\IGamesPageViewModelFactory.cs" />
+    <Compile Include="Models\Factories\Contracts\IReviewModelFactory.cs" />
+    <Compile Include="Models\Factories\Contracts\ISuportedPlatformModelFactory.cs" />
+    <Compile Include="Models\Factories\Contracts\IUserModelFactory.cs" />
+    <Compile Include="Models\Factories\GameInfoViewModelFactory.cs" />
+    <Compile Include="Models\Factories\GamesPageViewModelFactory.cs" />
+    <Compile Include="Models\Factories\ReviewModelFactory.cs" />
+    <Compile Include="Models\Factories\SuportedPlatformModelFactory.cs" />
+    <Compile Include="Models\Factories\UserModelFactory.cs" />
     <Compile Include="Models\GameInfoViewModel.cs" />
     <Compile Include="Models\GamesPageViewModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\ReviewModel.cs" />
+    <Compile Include="Models\SuportedPlatformModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

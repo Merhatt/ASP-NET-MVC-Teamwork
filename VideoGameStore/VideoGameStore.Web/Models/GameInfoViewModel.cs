@@ -7,5 +7,20 @@ namespace VideoGameStore.Web.Models
 {
     public class GameInfoViewModel
     {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public decimal Price { get; set; }
+
+        public string Description { get; set; }
+
+        public string ImageUrl { get; set; }
+
+        public IEnumerable<CheckBoxCategoryModel> Categories { get; set; }
+
+        public IEnumerable<SuportedPlatformModel> SuportedPlatforms { get; set; }
+
+        public IEnumerable<ReviewModel> Reviews { get; set; }
     }
 }

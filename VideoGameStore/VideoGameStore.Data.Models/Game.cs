@@ -11,13 +11,15 @@ namespace VideoGameStore.Data.Models
     {
         private ICollection<Category> categories;
         private ICollection<Platform> supportedPlatforms;
-        private ICollection<ShopCart> shopingCarts;
+        private ICollection<ApplicationUser> users;
+        private ICollection<Review> reviews;
 
         public Game()
         {
             this.categories = new HashSet<Category>();
             this.supportedPlatforms = new HashSet<Platform>();
-            this.shopingCarts = new HashSet<ShopCart>();
+            this.users = new HashSet<ApplicationUser>();
+            this.reviews = new HashSet<Review>();
         }
 
         public int Id { get; set; }
@@ -33,7 +35,7 @@ namespace VideoGameStore.Data.Models
 
         public string ImageUrl { get; set; }
 
-        public ICollection<Category> Categories
+        public virtual ICollection<Category> Categories
         {
             get
             {
@@ -45,7 +47,7 @@ namespace VideoGameStore.Data.Models
             }
         }
 
-        public ICollection<Platform> SupportedPlatforms
+        public virtual ICollection<Platform> SupportedPlatforms
         {
             get
             {
@@ -57,15 +59,27 @@ namespace VideoGameStore.Data.Models
             }
         }
 
-        public ICollection<ShopCart> ShopingCarts
+        public virtual ICollection<ApplicationUser> Users
         {
             get
             {
-                return this.shopingCarts;
+                return this.users;
             }
             set
             {
-                this.shopingCarts = value;
+                this.users = value;
+            }
+        }
+
+        public virtual ICollection<Review> Reviews
+        {
+            get
+            {
+                return this.reviews;
+            }
+            set
+            {
+                this.reviews = value;
             }
         }
     }

@@ -23,8 +23,6 @@ namespace VideoGameStore.Data
 
         public IDbSet<Platform> Platforms { get; set; }
 
-        public IDbSet<ShopCart> ShopingCarts { get; set; }
-
         public static VideoGameDBContext Create()
         {
             return new VideoGameDBContext();

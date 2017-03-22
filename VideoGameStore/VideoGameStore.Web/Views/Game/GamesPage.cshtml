@@ -43,7 +43,7 @@
     {
         <div class="game-container left">
             <div class="game-title">
-                <h3><a class="" href="/gameinfo/@game.Id">@game.Name</a></h3>
+                <h3><a class="" href="/gameinfo/@game.Id">@Html.Encode(game.Name)</a></h3>
             </div>
             <div>
                 <img class="game-img" src="@game.ImageUrl" alt="game image" />
@@ -60,8 +60,8 @@
                     }
                 }
             </div>
-
-            <div class="clear"></div>
         </div>
     }
+
+    <div class="clear"></div>
 </div>

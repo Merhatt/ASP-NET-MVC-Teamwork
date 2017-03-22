@@ -32,6 +32,11 @@ namespace VideoGameStore.Services
 
         public Category GetById(int id)
         {
+            if (id < 0)
+            {
+                throw new NullReferenceException("id cannot be less than zero");
+            }
+
             Category category = this.repository.GetById(id);
 
             return category;

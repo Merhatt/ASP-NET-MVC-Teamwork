@@ -108,3 +108,9 @@ textarea {
 .checkbox-category {
     margin-right: 20px;
 }
+
+.ccategory {
+    margin-right: 20px;
+
+    font-weight: bold;
+}

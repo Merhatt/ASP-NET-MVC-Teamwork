@@ -11,6 +11,39 @@ namespace VideoGameStore.Data.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        private ICollection<Review> reviews;
+        private ICollection<Game> shopingCart;
+
+        public ApplicationUser()
+        {
+            this.reviews = new HashSet<Review>();
+            this.shopingCart = new HashSet<Game>();
+        }
+
+        public virtual ICollection<Game> ShopingCart
+        {
+            get
+            {
+                return this.shopingCart;
+            }
+            set
+            {
+                this.shopingCart = value;
+            }
+        }
+
+        public virtual ICollection<Review> Reviews
+        {
+            get
+            {
+                return this.reviews;
+            }
+            set
+            {
+                this.reviews = value;
+            }
+        }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

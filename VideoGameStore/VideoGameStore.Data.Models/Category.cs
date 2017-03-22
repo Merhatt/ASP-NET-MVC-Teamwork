@@ -15,7 +15,7 @@ namespace VideoGameStore.Data.Models
         
         public string Name { get; set; }
 
-        public ICollection<Game> Games
+        public virtual ICollection<Game> Games
         {
             get
             {

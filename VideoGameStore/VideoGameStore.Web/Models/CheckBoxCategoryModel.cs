@@ -11,24 +11,6 @@ namespace VideoGameStore.Web.Models
         {
         }
 
-        /*
-        public CheckBoxCategoryModel(string name, int id)
-        {
-            if (string.IsNullOrEmpty(name))
-            {
-                throw new NullReferenceException("name cannot be null");
-            }
-
-            if (id < 0)
-            {
-                throw new NullReferenceException("id cannot be less than zero");
-            }
-
-            this.Name = name;
-            this.Id = id;
-        }
-        */
-
         public bool Checked { get; set; }
 
         public string Name { get; set; }
