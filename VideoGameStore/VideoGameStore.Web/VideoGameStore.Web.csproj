@@ -206,7 +206,9 @@
     </Compile>
     <Compile Include="Models\AddGameViewModel.cs" />
     <Compile Include="Models\CheckBoxCategoryModel.cs" />
+    <Compile Include="Models\Factories\AddGameViewModelFactory.cs" />
     <Compile Include="Models\Factories\CheckBoxCategoryModelFactory.cs" />
+    <Compile Include="Models\Factories\Contracts\IAddGameViewModelFactory.cs" />
     <Compile Include="Models\Factories\Contracts\ICheckBoxCategoryModelFactory.cs" />
     <Compile Include="Models\Factories\Contracts\IGameInfoViewModelFactory.cs" />
     <Compile Include="Models\Factories\Contracts\IGamesPageViewModelFactory.cs" />

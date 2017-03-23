@@ -8,7 +8,7 @@ namespace VideoGameStore.Web.Models.Factories
 {
     public class GameInfoViewModelFactory : IGameInfoViewModelFactory
     {
-        public GameInfoViewModel Create(int id, string name, decimal price, string description, string imageUrl, IEnumerable<CheckBoxCategoryModel> categories, IEnumerable<SuportedPlatformModel> suportedPlatforms, IEnumerable<ReviewModel> reviews)
+        public GameInfoViewModel Create(int id, string name, decimal price, string description, string imageUrl, IEnumerable<CheckBoxModel> categories, IEnumerable<SuportedPlatformModel> suportedPlatforms, IEnumerable<ReviewModel> reviews)
         {
             if (id < 0)
             {

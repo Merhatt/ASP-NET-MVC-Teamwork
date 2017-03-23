@@ -6,15 +6,21 @@ using System.Web.Mvc;
 using VideoGameStore.Data.Models;
 using VideoGameStore.Services.Contracts;
 using VideoGameStore.Web.Models;
+using VideoGameStore.Web.Models.Factories.Contracts;
 
 namespace VideoGameStore.Web.Controllers
 {
     public class AdminController : Controller
     {
+        private IAddGameViewModelFactory addGameViewModelFactory;
         private ICategoryServices categoryServices;
+        private ICheckBoxModelFactory checkBoxFactory;
         private IGameServices gameServices;
+        private IPlatformServices platformServices;
 
-        public AdminController(ICategoryServices categoryServices, IGameServices gameServices)
+        public AdminController(ICategoryServices categoryServices, IGameServices gameServices,
+            IPlatformServices platformServices, ICheckBoxModelFactory checkBoxFactory,
+            IAddGameViewModelFactory addGameViewModelFactory)
         {
             if (categoryServices == null)
             {
@@ -26,8 +32,26 @@ namespace VideoGameStore.Web.Controllers
                 throw new NullReferenceException("gameServices cannot be null");
             }
 
+            if (platformServices == null)
+            {
+                throw new NullReferenceException("platformServices cannot be null");
+            }
+
+            if (checkBoxFactory == null)
+            {
+                throw new NullReferenceException("checkBoxFactory cannot be null");
+            }
+
+            if (addGameViewModelFactory == null)
+            {
+                throw new NullReferenceException("addGameViewModelFactory cannot be null");
+            }
+
             this.categoryServices = categoryServices;
             this.gameServices = gameServices;
+            this.platformServices = platformServices;
+            this.checkBoxFactory = checkBoxFactory;
+            this.addGameViewModelFactory = addGameViewModelFactory;
         }
 
         [HttpGet]
@@ -36,20 +60,27 @@ namespace VideoGameStore.Web.Controllers
         {
             IEnumerable<Category> allCategories = this.categoryServices.GetAll();
 
-            AddGameViewModel model = new AddGameViewModel();
-
-            IList<CheckBoxCategoryModel> checkBoxes = new List<CheckBoxCategoryModel>();
+            IList<CheckBoxModel> checkBoxesCategories = new List<CheckBoxModel>();
 
             foreach (var category in allCategories)
             {
-                checkBoxes.Add(new CheckBoxCategoryModel()
-                {
-                    Name = category.Name,
-                    Id = category.Id
-                });
+                CheckBoxModel modelToAdd = this.checkBoxFactory.Create(category.Id, category.Name);
+
+                checkBoxesCategories.Add(modelToAdd);
             }
 
-            model.CheckBoxes = checkBoxes;
+            IEnumerable<Platform> platforms = this.platformServices.GetAll();
+
+            IList<CheckBoxModel> checkBoxesPlatforms = new List<CheckBoxModel>();
+
+            foreach (var platform in platforms)
+            {
+                CheckBoxModel modelToAdd = this.checkBoxFactory.Create(platform.Id, platform.Name);
+
+                checkBoxesPlatforms.Add(modelToAdd);
+            }
+
+            AddGameViewModel model = this.addGameViewModelFactory.Create(checkBoxesCategories, checkBoxesPlatforms);
 
             return View("~/Views/Admin/AddGame.cshtml", model);
         }
@@ -89,13 +120,25 @@ namespace VideoGameStore.Web.Controllers
             }
             else
             {
-                int categoriesCount = model.CheckBoxes.Where(x => x.Checked)
+                int categoriesCount = model.CheckBoxesCategories.Where(x => x.Checked)
                     .Count();
 
                 if (categoriesCount == 0)
                 {
                     model.ErrorText = "Atleast 1 category must be chosen";
                     isErrorFound = true;
+                }
+
+                if (isErrorFound == false)
+                {
+                    int platformsCount = model.Platforms.Where(x => x.Checked)
+                        .Count();
+
+                    if (platformsCount == 0)
+                    {
+                        model.ErrorText = "Atleast 1 platform must be chosen";
+                        isErrorFound = true;
+                    }
                 }
             }
 
@@ -107,7 +150,7 @@ namespace VideoGameStore.Web.Controllers
             {
                 ICollection<Category> categories = new List<Category>();
 
-                foreach (var cat in model.CheckBoxes)
+                foreach (var cat in model.CheckBoxesCategories)
                 {
                     if (cat.Checked)
                     {
@@ -117,7 +160,19 @@ namespace VideoGameStore.Web.Controllers
                     }
                 }
 
-                gameServices.Create(model.Name, model.Price, model.Description, model.ImageUrl, categories);
+                ICollection<Platform> supportedPlatforms = new List<Platform>();
+
+                foreach (var pl in model.Platforms)
+                {
+                    if (pl.Checked)
+                    {
+                        Platform platformToAdd = this.platformServices.GetById(pl.Id);
+
+                        supportedPlatforms.Add(platformToAdd);
+                    }
+                }
+
+                this.gameServices.Create(model.Name, model.Price, model.Description, model.ImageUrl, categories, supportedPlatforms);
 
                 return RedirectToAction("Index", "GamesPage");
             }

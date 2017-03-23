@@ -22,6 +22,8 @@ namespace VideoGameStore.Web.Models
 
         public string ImageUrl { get; set; }
 
-        public IList<CheckBoxCategoryModel> CheckBoxes { get; set; }
+        public IList<CheckBoxModel> CheckBoxesCategories { get; set; }
+
+        public IList<CheckBoxModel> Platforms { get; set; }
     }
 }

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace VideoGameStore.Web.Models.Factories.Contracts
 {
-    public interface ICheckBoxCategoryModelFactory
+    public interface ICheckBoxModelFactory
     {
-        CheckBoxCategoryModel Create(int id, string name);
+        CheckBoxModel Create(int id, string name);
     }
 }

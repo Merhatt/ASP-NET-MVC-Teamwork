@@ -10,7 +10,7 @@
     <h1>@this.Html.Encode(this.Model.Name)</h1>
 </div>
 <div>
-    <img src="@this.Model.ImageUrl" alt="game cover" class="image-url"/>
+    <img src="@this.Model.ImageUrl" alt="game cover" class="image-url" />
 </div>
 <div>
     <h4>Price: @this.Model.Price$</h4>
@@ -40,12 +40,29 @@
 
     <div class="clear"></div>
 </div>
+@if (this.User.Identity.IsAuthenticated)
+{
+    <div>
+        <h4>Add Review</h4>
+        @using (Html.BeginForm("AddReview", "GameInfo", FormMethod.Post))
+        {
+            <div>
+                @Html.TextAreaFor(x => x.ReviewComment, new { @class = "review" });
+            </div>
+            <br />
+            @Html.HiddenFor(x => x.Id);
+            <input class="btn btn-success" type="submit" value="Send" />
+            <br />
+        }
+    </div>
+}
 <div>
     <h4>Reviews:</h4>
+
     @foreach (var review in this.Model.Reviews)
     {
         <div>
-            <h6>User: @Html.Encode(review.Author)</h6>
+            <h6>User: @Html.Encode(review.Author.Username)</h6>
             <p>
                 @Html.Encode(review.Comment)
             </p>

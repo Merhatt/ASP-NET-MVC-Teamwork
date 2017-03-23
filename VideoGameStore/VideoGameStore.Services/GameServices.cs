@@ -38,7 +38,7 @@ namespace VideoGameStore.Services
             this.gameFactory = gameFactory;
         }
 
-        public void Create(string name, decimal price, string description, string imageUrl, ICollection<Category> categories)
+        public void Create(string name, decimal price, string description, string imageUrl, ICollection<Category> categories, ICollection<Platform> platforms)
         {
             if (name == null)
             {
@@ -65,7 +65,12 @@ namespace VideoGameStore.Services
                 throw new NullReferenceException("game categories cannot be null or empty");
             }
 
-            Game game = this.gameFactory.Create(name, price, description, imageUrl, categories);
+            if (platforms == null || platforms.Count == 0)
+            {
+                throw new NullReferenceException("platforms cannot be null or empty");
+            }
+
+            Game game = this.gameFactory.Create(name, price, description, imageUrl, categories, platforms);
 
             this.repository.Add(game);
             this.unitOfWork.Commit();

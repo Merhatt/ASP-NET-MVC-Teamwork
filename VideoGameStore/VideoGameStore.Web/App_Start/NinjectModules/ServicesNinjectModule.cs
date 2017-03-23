@@ -14,6 +14,9 @@ namespace VideoGameStore.Web.App_Start.NinjectModules
         {
             this.Kernel.Bind<IGameServices>().To<GameServices>();
             this.Kernel.Bind<ICategoryServices>().To<CategoryServices>();
+            this.Kernel.Bind<IPlatformServices>().To<PlatformServices>();
+            this.Kernel.Bind<IUserServices>().To<UserServices>();
+            this.Kernel.Bind<IReviewServices>().To<ReviewServices>();
         }
     }
 }

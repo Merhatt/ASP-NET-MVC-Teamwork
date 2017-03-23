@@ -114,3 +114,8 @@ textarea {
 
     font-weight: bold;
 }
+
+.review {
+    width: 300px;
+    height: 100px;
+}

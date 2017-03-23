@@ -5,9 +5,9 @@ using System.Web;
 
 namespace VideoGameStore.Web.Models
 {
-    public class CheckBoxCategoryModel
+    public class CheckBoxModel
     {
-        public CheckBoxCategoryModel()
+        public CheckBoxModel()
         {
         }
 

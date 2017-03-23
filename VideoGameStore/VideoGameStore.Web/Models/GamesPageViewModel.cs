@@ -13,6 +13,6 @@ namespace VideoGameStore.Web.Models
 
         public IEnumerable<Game> Games { get; set; }
 
-        public IList<CheckBoxCategoryModel> CheckBoxes { get; set; }
+        public IList<CheckBoxModel> CheckBoxesCategories { get; set; }
     }
 }

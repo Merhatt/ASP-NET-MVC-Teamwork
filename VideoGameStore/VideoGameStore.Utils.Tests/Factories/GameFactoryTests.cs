@@ -24,10 +24,13 @@ namespace VideoGameStore.Utils.Tests.Factories
             ICollection<Category> categories = new List<Category>();
             categories.Add(new Category());
 
+            ICollection<Platform> platforms = new List<Platform>();
+            platforms.Add(new Platform());
+
             GameFactory factory = new GameFactory();
 
             //Act & Assert
-            var msg = Assert.Throws<NullReferenceException>(() => factory.Create(name, price, description, imageUrl, categories));
+            var msg = Assert.Throws<NullReferenceException>(() => factory.Create(name, price, description, imageUrl, categories, platforms));
 
             Assert.AreEqual("name cannot be null", msg.Message);
         }
@@ -41,13 +44,16 @@ namespace VideoGameStore.Utils.Tests.Factories
             string description = "description";
             string imageUrl = "testUrl";
 
+            ICollection<Platform> platforms = new List<Platform>();
+            platforms.Add(new Platform());
+
             ICollection<Category> categories = new List<Category>();
             categories.Add(new Category());
 
             GameFactory factory = new GameFactory();
 
             //Act & Assert
-            var msg = Assert.Throws<ArgumentOutOfRangeException>(() => factory.Create(name, price, description, imageUrl, categories));
+            var msg = Assert.Throws<ArgumentOutOfRangeException>(() => factory.Create(name, price, description, imageUrl, categories, platforms));
         }
 
         [Test]
@@ -62,10 +68,13 @@ namespace VideoGameStore.Utils.Tests.Factories
             ICollection<Category> categories = new List<Category>();
             categories.Add(new Category());
 
+            ICollection<Platform> platforms = new List<Platform>();
+            platforms.Add(new Platform());
+
             GameFactory factory = new GameFactory();
 
             //Act & Assert
-            var msg = Assert.Throws<NullReferenceException>(() => factory.Create(name, price, description, imageUrl, categories));
+            var msg = Assert.Throws<NullReferenceException>(() => factory.Create(name, price, description, imageUrl, categories, platforms));
 
             Assert.AreEqual("description cannot be null", msg.Message);
         }
@@ -79,13 +88,16 @@ namespace VideoGameStore.Utils.Tests.Factories
             string description = "Tests";
             string imageUrl = null;
 
+            ICollection<Platform> platforms = new List<Platform>();
+            platforms.Add(new Platform());
+
             ICollection<Category> categories = new List<Category>();
             categories.Add(new Category());
 
             GameFactory factory = new GameFactory();
 
             //Act & Assert
-            var msg = Assert.Throws<NullReferenceException>(() => factory.Create(name, price, description, imageUrl, categories));
+            var msg = Assert.Throws<NullReferenceException>(() => factory.Create(name, price, description, imageUrl, categories, platforms));
 
             Assert.AreEqual("imageUrl cannot be null", msg.Message);
         }
@@ -97,6 +109,10 @@ namespace VideoGameStore.Utils.Tests.Factories
             string name = "Asd";
             decimal price = 10;
             string description = "Tests";
+
+            ICollection<Platform> platforms = new List<Platform>();
+            platforms.Add(new Platform());
+
             string imageUrl = "asdasd";
 
             ICollection<Category> categories = null;
@@ -104,7 +120,7 @@ namespace VideoGameStore.Utils.Tests.Factories
             GameFactory factory = new GameFactory();
 
             //Act & Assert
-            var msg = Assert.Throws<NullReferenceException>(() => factory.Create(name, price, description, imageUrl, categories));
+            var msg = Assert.Throws<NullReferenceException>(() => factory.Create(name, price, description, imageUrl, categories, platforms));
 
             Assert.AreEqual("game categories cannot be null or empty", msg.Message);
         }
@@ -118,14 +134,61 @@ namespace VideoGameStore.Utils.Tests.Factories
             string description = "Tests";
             string imageUrl = "asdasd";
 
+            ICollection<Platform> platforms = new List<Platform>();
+            platforms.Add(new Platform());
+
             ICollection<Category> categories = new List<Category>();
 
             GameFactory factory = new GameFactory();
 
             //Act & Assert
-            var msg = Assert.Throws<NullReferenceException>(() => factory.Create(name, price, description, imageUrl, categories));
+            var msg = Assert.Throws<NullReferenceException>(() => factory.Create(name, price, description, imageUrl, categories, platforms));
 
             Assert.AreEqual("game categories cannot be null or empty", msg.Message);
+        }
+
+        [Test]
+        public void Create_NullPlatforms_ShouldThrow()
+        {
+            //Arrange
+            string name = "Asd";
+            decimal price = 10;
+            string description = "Tests";
+            string imageUrl = "asdasd";
+
+            ICollection<Platform> platforms = null;
+
+            ICollection<Category> categories = new List<Category>();
+            categories.Add(new Category());
+
+            GameFactory factory = new GameFactory();
+
+            //Act & Assert
+            var msg = Assert.Throws<NullReferenceException>(() => factory.Create(name, price, description, imageUrl, categories, platforms));
+
+            Assert.AreEqual("platforms cannot be null or empty", msg.Message);
+        }
+
+        [Test]
+        public void Create_EmptyPlatforms_ShouldThrow()
+        {
+            //Arrange
+            string name = "Asd";
+            decimal price = 10;
+            string description = "Tests";
+            string imageUrl = "asdasd";
+
+            ICollection<Platform> platforms = new List<Platform>();
+
+            ICollection<Category> categories = new List<Category>();
+            categories.Add(new Category());
+
+            GameFactory factory = new GameFactory();
+
+            //Act & Assert
+            var msg = Assert.Throws<NullReferenceException>(() => factory.Create(name, price, description, imageUrl, categories, platforms));
+
+            Assert.AreEqual("platforms cannot be null or empty", msg.Message);
         }
 
         [Test]
@@ -140,10 +203,13 @@ namespace VideoGameStore.Utils.Tests.Factories
             ICollection<Category> categories = new List<Category>();
             categories.Add(new Category());
 
+            ICollection<Platform> platforms = new List<Platform>();
+            platforms.Add(new Platform());
+
             GameFactory factory = new GameFactory();
 
             //Act
-            Game game = factory.Create(name, price, description, imageUrl, categories);
+            Game game = factory.Create(name, price, description, imageUrl, categories, platforms);
 
             //Assert
             Assert.AreEqual(name, game.Name);

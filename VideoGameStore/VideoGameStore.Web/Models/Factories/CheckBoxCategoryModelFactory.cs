@@ -6,9 +6,9 @@ using VideoGameStore.Web.Models.Factories.Contracts;
 
 namespace VideoGameStore.Web.Models.Factories
 {
-    public class CheckBoxCategoryModelFactory : ICheckBoxCategoryModelFactory
+    public class CheckBoxModelFactory : ICheckBoxModelFactory
     {
-        public CheckBoxCategoryModel Create(int id, string name)
+        public CheckBoxModel Create(int id, string name)
         {
             if (id < 0)
             {
@@ -20,7 +20,7 @@ namespace VideoGameStore.Web.Models.Factories
                 throw new NullReferenceException("name cannot be null");
             }
 
-            CheckBoxCategoryModel model = new CheckBoxCategoryModel();
+            CheckBoxModel model = new CheckBoxModel();
 
             model.Id = id;
             model.Name = name;

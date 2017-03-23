@@ -9,6 +9,6 @@ namespace VideoGameStore.Utils.Factories.Contracts
 {
     public interface IGameFactory
     {
-        Game Create(string name, decimal price, string description, string imageUrl, ICollection<Category> categories);
+        Game Create(string name, decimal price, string description, string imageUrl, ICollection<Category> categories, ICollection<Platform> platforms);
     }
 }

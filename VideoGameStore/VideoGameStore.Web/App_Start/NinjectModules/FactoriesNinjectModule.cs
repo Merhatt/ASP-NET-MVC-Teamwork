@@ -16,11 +16,13 @@ namespace VideoGameStore.Web.App_Start.NinjectModules
         {
             this.Kernel.Bind<IGameFactory>().To<GameFactory>().InSingletonScope();
             this.Kernel.Bind<IGameInfoViewModelFactory>().To<GameInfoViewModelFactory>().InSingletonScope();
-            this.Kernel.Bind<ICheckBoxCategoryModelFactory>().To<CheckBoxCategoryModelFactory>().InSingletonScope();
+            this.Kernel.Bind<ICheckBoxModelFactory>().To<CheckBoxModelFactory>().InSingletonScope();
             this.Kernel.Bind<ISuportedPlatformModelFactory>().To<SuportedPlatformModelFactory>().InSingletonScope();
             this.Kernel.Bind<IReviewModelFactory>().To<ReviewModelFactory>().InSingletonScope();
             this.Kernel.Bind<IUserModelFactory>().To<UserModelFactory>().InSingletonScope();
             this.Kernel.Bind<IGamesPageViewModelFactory>().To<GamesPageViewModelFactory>().InSingletonScope();
+            this.Kernel.Bind<IAddGameViewModelFactory>().To<AddGameViewModelFactory>().InSingletonScope();
+            this.Kernel.Bind<IReviewFactory>().To<ReviewFactory>().InSingletonScope();
         }
     }
 }

@@ -29,10 +29,13 @@ namespace VideoGameStore.Services.Tests.GameServicesTests
             ICollection<Category> categories = new List<Category>();
             categories.Add(new Category());
 
+            ICollection<Platform> platforms = new List<Platform>();
+            platforms.Add(new Platform());
+
             GameServices services = new GameServices(repositoryMock.Object, unitOfWorkMock.Object, gameFactoryMock.Object);
 
             //Act & Assert
-            var msg = Assert.Throws<NullReferenceException>(() => services.Create(name, price, description, imageUrl, categories));
+            var msg = Assert.Throws<NullReferenceException>(() => services.Create(name, price, description, imageUrl, categories, platforms));
 
             Assert.AreEqual("name cannot be null", msg.Message);
         }
@@ -52,10 +55,13 @@ namespace VideoGameStore.Services.Tests.GameServicesTests
             ICollection<Category> categories = new List<Category>();
             categories.Add(new Category());
 
+            ICollection<Platform> platforms = new List<Platform>();
+            platforms.Add(new Platform());
+
             GameServices services = new GameServices(repositoryMock.Object, unitOfWorkMock.Object, gameFactoryMock.Object);
 
             //Act & Assert
-            var msg = Assert.Throws<ArgumentOutOfRangeException>(() => services.Create(name, price, description, imageUrl, categories));
+            var msg = Assert.Throws<ArgumentOutOfRangeException>(() => services.Create(name, price, description, imageUrl, categories, platforms));
         }
 
         [Test]
@@ -73,10 +79,13 @@ namespace VideoGameStore.Services.Tests.GameServicesTests
             ICollection<Category> categories = new List<Category>();
             categories.Add(new Category());
 
+            ICollection<Platform> platforms = new List<Platform>();
+            platforms.Add(new Platform());
+
             GameServices services = new GameServices(repositoryMock.Object, unitOfWorkMock.Object, gameFactoryMock.Object);
 
             //Act & Assert
-            var msg = Assert.Throws<NullReferenceException>(() => services.Create(name, price, description, imageUrl, categories));
+            var msg = Assert.Throws<NullReferenceException>(() => services.Create(name, price, description, imageUrl, categories, platforms));
 
             Assert.AreEqual("description cannot be null", msg.Message);
         }
@@ -96,10 +105,13 @@ namespace VideoGameStore.Services.Tests.GameServicesTests
             ICollection<Category> categories = new List<Category>();
             categories.Add(new Category());
 
+            ICollection<Platform> platforms = new List<Platform>();
+            platforms.Add(new Platform());
+
             GameServices services = new GameServices(repositoryMock.Object, unitOfWorkMock.Object, gameFactoryMock.Object);
 
             //Act & Assert
-            var msg = Assert.Throws<NullReferenceException>(() => services.Create(name, price, description, imageUrl, categories));
+            var msg = Assert.Throws<NullReferenceException>(() => services.Create(name, price, description, imageUrl, categories, platforms));
 
             Assert.AreEqual("imageUrl cannot be null", msg.Message);
         }
@@ -118,10 +130,13 @@ namespace VideoGameStore.Services.Tests.GameServicesTests
             string imageUrl = "testUrl";
             ICollection<Category> categories = null;
 
+            ICollection<Platform> platforms = new List<Platform>();
+            platforms.Add(new Platform());
+
             GameServices services = new GameServices(repositoryMock.Object, unitOfWorkMock.Object, gameFactoryMock.Object);
 
             //Act & Assert
-            var msg = Assert.Throws<NullReferenceException>(() => services.Create(name, price, description, imageUrl, categories));
+            var msg = Assert.Throws<NullReferenceException>(() => services.Create(name, price, description, imageUrl, categories, platforms));
 
             Assert.AreEqual("game categories cannot be null or empty", msg.Message);
         }
@@ -140,12 +155,65 @@ namespace VideoGameStore.Services.Tests.GameServicesTests
             string imageUrl = "testUrl";
             ICollection<Category> categories = new List<Category>();
 
+            ICollection<Platform> platforms = new List<Platform>();
+            platforms.Add(new Platform());
+
             GameServices services = new GameServices(repositoryMock.Object, unitOfWorkMock.Object, gameFactoryMock.Object);
 
             //Act & Assert
-            var msg = Assert.Throws<NullReferenceException>(() => services.Create(name, price, description, imageUrl, categories));
+            var msg = Assert.Throws<NullReferenceException>(() => services.Create(name, price, description, imageUrl, categories, platforms));
 
             Assert.AreEqual("game categories cannot be null or empty", msg.Message);
+        }
+
+        [Test]
+        public void NullPlatforms_ShouldThrow()
+        {
+            //Arrange
+            var repositoryMock = new Mock<IRepository<Game>>();
+            var unitOfWorkMock = new Mock<IUnitOfWork>();
+            var gameFactoryMock = new Mock<IGameFactory>();
+
+            string name = "asd";
+            decimal price = 10;
+            string description = "description";
+            string imageUrl = "testUrl";
+            ICollection<Category> categories = new List<Category>();
+            categories.Add(new Category());
+
+            ICollection<Platform> platforms = null;
+
+            GameServices services = new GameServices(repositoryMock.Object, unitOfWorkMock.Object, gameFactoryMock.Object);
+
+            //Act & Assert
+            var msg = Assert.Throws<NullReferenceException>(() => services.Create(name, price, description, imageUrl, categories, platforms));
+
+            Assert.AreEqual("platforms cannot be null or empty", msg.Message);
+        }
+
+        [Test]
+        public void EmptyPlatforms_ShouldThrow()
+        {
+            //Arrange
+            var repositoryMock = new Mock<IRepository<Game>>();
+            var unitOfWorkMock = new Mock<IUnitOfWork>();
+            var gameFactoryMock = new Mock<IGameFactory>();
+
+            string name = "asd";
+            decimal price = 10;
+            string description = "description";
+            string imageUrl = "testUrl";
+            ICollection<Category> categories = new List<Category>();
+            categories.Add(new Category());
+
+            ICollection<Platform> platforms = new List<Platform>();
+
+            GameServices services = new GameServices(repositoryMock.Object, unitOfWorkMock.Object, gameFactoryMock.Object);
+
+            //Act & Assert
+            var msg = Assert.Throws<NullReferenceException>(() => services.Create(name, price, description, imageUrl, categories, platforms));
+
+            Assert.AreEqual("platforms cannot be null or empty", msg.Message);
         }
 
         [Test]
@@ -163,16 +231,19 @@ namespace VideoGameStore.Services.Tests.GameServicesTests
             ICollection<Category> categories = new List<Category>();
             categories.Add(new Category());
 
+            ICollection<Platform> platforms = new List<Platform>();
+            platforms.Add(new Platform());
+
             Game game = new Game();
 
-            gameFactoryMock.Setup(x => x.Create(name, price, description, imageUrl, categories))
+            gameFactoryMock.Setup(x => x.Create(name, price, description, imageUrl, categories, platforms))
                 .Returns(game)
                 .Verifiable();
 
             GameServices services = new GameServices(repositoryMock.Object, unitOfWorkMock.Object, gameFactoryMock.Object);
 
             //Act
-            services.Create(name, price, description, imageUrl, categories);
+            services.Create(name, price, description, imageUrl, categories, platforms);
 
             //Assert
             gameFactoryMock.VerifyAll();

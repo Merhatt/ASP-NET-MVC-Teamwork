@@ -7,7 +7,7 @@
 
 
 <div class="search-box-panel">
-    @using (Html.BeginForm("SearchByName", "GamesPage", FormMethod.Post))
+    @using (Html.BeginForm("Search", "GamesPage", FormMethod.Post))
     {
         <div class="form-group search-box">
             <h3>Enter game name</h3>
@@ -18,19 +18,18 @@
                 <br />
                 <br />
                 <h3>Select categories</h3>
-                @for (int i = 0; i < this.Model.CheckBoxes.Count; i++)
+                @for (int i = 0; i < this.Model.CheckBoxesCategories.Count; i++)
                 {
                     <div class="checkbox-category left">
-                        @Html.CheckBoxFor(x => x.CheckBoxes[i].Checked, new { id = "cb" + i })
-                        @Html.HiddenFor(m => m.CheckBoxes[i].Id)
-                        @Html.HiddenFor(m => m.CheckBoxes[i].Name)
-                        <label for="@("cb" + i)">@this.Model.CheckBoxes[i].Name</label>
+                        @Html.CheckBoxFor(x => x.CheckBoxesCategories[i].Checked, new { id = "cb" + i })
+                        @Html.HiddenFor(m => m.CheckBoxesCategories[i].Id)
+                        @Html.HiddenFor(m => m.CheckBoxesCategories[i].Name)
+                        <label for="@("cb" + i)">@this.Model.CheckBoxesCategories[i].Name</label>
                     </div>
                 }
 
                 <div class="clear"></div>
             </div>
-
             <br />
             <button type="submit" class="btn btn-success left search-btn">Search</button>
             <div class="clear"></div>

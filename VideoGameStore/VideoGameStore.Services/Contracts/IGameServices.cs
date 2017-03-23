@@ -9,7 +9,7 @@ namespace VideoGameStore.Services.Contracts
 {
     public interface IGameServices
     {
-        void Create(string name, decimal price, string description, string imageUrl, ICollection<Category> categories);
+        void Create(string name, decimal price, string description, string imageUrl, ICollection<Category> categories, ICollection<Platform> platforms);
 
         IEnumerable<Game> GetAll();
 

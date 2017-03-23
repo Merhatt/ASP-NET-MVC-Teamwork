@@ -17,10 +17,14 @@ namespace VideoGameStore.Web.Models
 
         public string ImageUrl { get; set; }
 
-        public IEnumerable<CheckBoxCategoryModel> Categories { get; set; }
+        public string ReviewComment { get; set; }
+
+        public IEnumerable<CheckBoxModel> Categories { get; set; }
 
         public IEnumerable<SuportedPlatformModel> SuportedPlatforms { get; set; }
 
         public IEnumerable<ReviewModel> Reviews { get; set; }
+
+        public IEnumerable<CheckBoxModel> Platforms { get; set; }
     }
 }

@@ -21,7 +21,7 @@ namespace VideoGameStore.Web.Tests.Factories.GameInfoViewModelFactoryTests
             decimal price = 12;
             string description = "description";
             string imageUrl = "imgurl";
-            IList<CheckBoxCategoryModel> categories = new List<CheckBoxCategoryModel>();
+            IList<CheckBoxModel> categories = new List<CheckBoxModel>();
             IList<SuportedPlatformModel> suportedPlatforms = new List<SuportedPlatformModel>();
             IList<ReviewModel> reviews = new List<ReviewModel>();
 
@@ -42,7 +42,7 @@ namespace VideoGameStore.Web.Tests.Factories.GameInfoViewModelFactoryTests
             decimal price = 12;
             string description = "description";
             string imageUrl = "imgurl";
-            IList<CheckBoxCategoryModel> categories = new List<CheckBoxCategoryModel>();
+            IList<CheckBoxModel> categories = new List<CheckBoxModel>();
             IList<SuportedPlatformModel> suportedPlatforms = new List<SuportedPlatformModel>();
             IList<ReviewModel> reviews = new List<ReviewModel>();
 
@@ -63,7 +63,7 @@ namespace VideoGameStore.Web.Tests.Factories.GameInfoViewModelFactoryTests
             decimal price = 12;
             string description = "description";
             string imageUrl = "imgurl";
-            IList<CheckBoxCategoryModel> categories = new List<CheckBoxCategoryModel>();
+            IList<CheckBoxModel> categories = new List<CheckBoxModel>();
             IList<SuportedPlatformModel> suportedPlatforms = new List<SuportedPlatformModel>();
             IList<ReviewModel> reviews = new List<ReviewModel>();
 
@@ -84,7 +84,7 @@ namespace VideoGameStore.Web.Tests.Factories.GameInfoViewModelFactoryTests
             decimal price = -12;
             string description = "description";
             string imageUrl = "imgurl";
-            IList<CheckBoxCategoryModel> categories = new List<CheckBoxCategoryModel>();
+            IList<CheckBoxModel> categories = new List<CheckBoxModel>();
             IList<SuportedPlatformModel> suportedPlatforms = new List<SuportedPlatformModel>();
             IList<ReviewModel> reviews = new List<ReviewModel>();
 
@@ -105,7 +105,7 @@ namespace VideoGameStore.Web.Tests.Factories.GameInfoViewModelFactoryTests
             decimal price = 12;
             string description = null;
             string imageUrl = "imgurl";
-            IList<CheckBoxCategoryModel> categories = new List<CheckBoxCategoryModel>();
+            IList<CheckBoxModel> categories = new List<CheckBoxModel>();
             IList<SuportedPlatformModel> suportedPlatforms = new List<SuportedPlatformModel>();
             IList<ReviewModel> reviews = new List<ReviewModel>();
 
@@ -126,7 +126,7 @@ namespace VideoGameStore.Web.Tests.Factories.GameInfoViewModelFactoryTests
             decimal price = 12;
             string description = "";
             string imageUrl = "imgurl";
-            IList<CheckBoxCategoryModel> categories = new List<CheckBoxCategoryModel>();
+            IList<CheckBoxModel> categories = new List<CheckBoxModel>();
             IList<SuportedPlatformModel> suportedPlatforms = new List<SuportedPlatformModel>();
             IList<ReviewModel> reviews = new List<ReviewModel>();
 
@@ -147,7 +147,7 @@ namespace VideoGameStore.Web.Tests.Factories.GameInfoViewModelFactoryTests
             decimal price = 12;
             string description = "Desadas";
             string imageUrl = null;
-            IList<CheckBoxCategoryModel> categories = new List<CheckBoxCategoryModel>();
+            IList<CheckBoxModel> categories = new List<CheckBoxModel>();
             IList<SuportedPlatformModel> suportedPlatforms = new List<SuportedPlatformModel>();
             IList<ReviewModel> reviews = new List<ReviewModel>();
 
@@ -168,7 +168,7 @@ namespace VideoGameStore.Web.Tests.Factories.GameInfoViewModelFactoryTests
             decimal price = 12;
             string description = "Desadas";
             string imageUrl = "";
-            IList<CheckBoxCategoryModel> categories = new List<CheckBoxCategoryModel>();
+            IList<CheckBoxModel> categories = new List<CheckBoxModel>();
             IList<SuportedPlatformModel> suportedPlatforms = new List<SuportedPlatformModel>();
             IList<ReviewModel> reviews = new List<ReviewModel>();
 
@@ -189,7 +189,7 @@ namespace VideoGameStore.Web.Tests.Factories.GameInfoViewModelFactoryTests
             decimal price = 12;
             string description = "Desadas";
             string imageUrl = "asdasd";
-            IList<CheckBoxCategoryModel> categories = null;
+            IList<CheckBoxModel> categories = null;
             IList<SuportedPlatformModel> suportedPlatforms = new List<SuportedPlatformModel>();
             IList<ReviewModel> reviews = new List<ReviewModel>();
 
@@ -210,7 +210,7 @@ namespace VideoGameStore.Web.Tests.Factories.GameInfoViewModelFactoryTests
             decimal price = 12;
             string description = "Desadas";
             string imageUrl = "asdasd";
-            IList<CheckBoxCategoryModel> categories = new List<CheckBoxCategoryModel>();
+            IList<CheckBoxModel> categories = new List<CheckBoxModel>();
             IList<SuportedPlatformModel> suportedPlatforms = null;
             IList<ReviewModel> reviews = new List<ReviewModel>();
 
@@ -231,7 +231,7 @@ namespace VideoGameStore.Web.Tests.Factories.GameInfoViewModelFactoryTests
             decimal price = 12;
             string description = "Desadas";
             string imageUrl = "asdasd";
-            IList<CheckBoxCategoryModel> categories = new List<CheckBoxCategoryModel>();
+            IList<CheckBoxModel> categories = new List<CheckBoxModel>();
             IList<SuportedPlatformModel> suportedPlatforms = new List<SuportedPlatformModel>();
             IList<ReviewModel> reviews = null;
 
@@ -252,7 +252,7 @@ namespace VideoGameStore.Web.Tests.Factories.GameInfoViewModelFactoryTests
             decimal price = 12;
             string description = "Desadas";
             string imageUrl = "asdasd";
-            IList<CheckBoxCategoryModel> categories = new List<CheckBoxCategoryModel>();
+            IList<CheckBoxModel> categories = new List<CheckBoxModel>();
             IList<SuportedPlatformModel> suportedPlatforms = new List<SuportedPlatformModel>();
             IList<ReviewModel> reviews = new List<ReviewModel>();
 

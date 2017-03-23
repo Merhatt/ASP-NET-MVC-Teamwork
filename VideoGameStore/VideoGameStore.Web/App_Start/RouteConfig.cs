@@ -20,6 +20,12 @@ namespace VideoGameStore.Web
             );
 
             routes.MapRoute(
+                name: "GameInfoReview",
+                url: "GameInfo/AddReview",
+                defaults: new { controller = "GameInfo", action = "AddReview" }
+            );
+
+            routes.MapRoute(
                 name: "GameInfo",
                 url: "gameinfo/{id}",
                 defaults: new { controller = "GameInfo", action = "Index", id = UrlParameter.Optional }

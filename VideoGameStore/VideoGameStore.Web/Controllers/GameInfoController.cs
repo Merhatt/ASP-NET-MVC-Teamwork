@@ -12,14 +12,17 @@ namespace VideoGameStore.Web.Controllers
 {
     public class GameInfoController : Controller
     {
-        private ICheckBoxCategoryModelFactory checkBoxCategoryModelFactory;
+        private ICheckBoxModelFactory checkBoxCategoryModelFactory;
         private IGameInfoViewModelFactory gameInfoViewModelFactory;
         private IGameServices gameServices;
         private IReviewModelFactory reviewModelFactory;
         private ISuportedPlatformModelFactory suportedPlatformModelFactory;
+        private IReviewServices reviewServices;
+        private IUserServices userServices;
 
-        public GameInfoController(IGameServices gameServices, IGameInfoViewModelFactory gameInfoViewModelFactory, 
-            ICheckBoxCategoryModelFactory checkBoxCategoryModelFactory, ISuportedPlatformModelFactory suportedPlatformModelFactory,
+        public GameInfoController(IGameServices gameServices, IUserServices userServices, IReviewServices reviewServices,
+            IGameInfoViewModelFactory gameInfoViewModelFactory, 
+            ICheckBoxModelFactory checkBoxCategoryModelFactory, ISuportedPlatformModelFactory suportedPlatformModelFactory,
             IReviewModelFactory reviewModelFactory)
         {
             if (gameServices == null)
@@ -47,11 +50,23 @@ namespace VideoGameStore.Web.Controllers
                 throw new NullReferenceException("reviewModelFactory cannot be null");
             }
 
+            if (userServices == null)
+            {
+                throw new NullReferenceException("userServices cannot be null");
+            }
+
+            if (reviewServices == null)
+            {
+                throw new NullReferenceException("reviewServices cannot be null");
+            }
+
             this.gameServices = gameServices;
             this.gameInfoViewModelFactory = gameInfoViewModelFactory;
             this.checkBoxCategoryModelFactory = checkBoxCategoryModelFactory;
             this.suportedPlatformModelFactory = suportedPlatformModelFactory;
             this.reviewModelFactory = reviewModelFactory;
+            this.userServices = userServices;
+            this.reviewServices = reviewServices;
         }
 
         [HttpGet]
@@ -64,11 +79,11 @@ namespace VideoGameStore.Web.Controllers
                 return HttpNotFound();
             }
 
-            ICollection<CheckBoxCategoryModel> categories = new HashSet<CheckBoxCategoryModel>();
+            ICollection<CheckBoxModel> categories = new HashSet<CheckBoxModel>();
 
             foreach (var cat in game.Categories)
             {
-                CheckBoxCategoryModel categoryToAdd = this.checkBoxCategoryModelFactory.Create(cat.Id, cat.Name);
+                CheckBoxModel categoryToAdd = this.checkBoxCategoryModelFactory.Create(cat.Id, cat.Name);
 
                 categories.Add(categoryToAdd);
             }
@@ -95,6 +110,24 @@ namespace VideoGameStore.Web.Controllers
                 game.Description, game.ImageUrl, categories, supportedPlatforms, reviews);
 
             return View("~/Views/Game/GameInfo.cshtml", model);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult AddReview(GameInfoViewModel model)
+        {
+            Game game = this.gameServices.GetById(model.Id);
+
+            if (game == null)
+            {
+                return HttpNotFound();
+            }
+
+            ApplicationUser user = this.userServices.GetUser(this.User.Identity.Name);
+
+            this.reviewServices.CreateReview(model.ReviewComment, user, game);
+
+            return Redirect(this.Request.UrlReferrer.ToString());
         }
     }
 }

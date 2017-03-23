@@ -15,10 +15,12 @@ namespace VideoGameStore.Web.Controllers
     {
         private IGameServices gameServices;
         private ICategoryServices categoryServices;
-        private ICheckBoxCategoryModelFactory checkBoxCategoryModelFactory;
+        private ICheckBoxModelFactory checkBoxCategoryModelFactory;
         private IGamesPageViewModelFactory gamesPageViewModelFactory;
+        private IUserServices userServices;
 
-        public GamesPageController(IGameServices gameServices, ICategoryServices categoryServices, ICheckBoxCategoryModelFactory checkBoxCategoryModelFactory,
+        public GamesPageController(IGameServices gameServices, ICategoryServices categoryServices, 
+            ICheckBoxModelFactory checkBoxCategoryModelFactory, IUserServices userServices,
             IGamesPageViewModelFactory gamesPageViewModelFactory)
         {
             if (gameServices == null)
@@ -41,10 +43,16 @@ namespace VideoGameStore.Web.Controllers
                 throw new NullReferenceException("gamesPageViewModelFactory cannot be null");
             }
 
+            if (userServices == null)
+            {
+                throw new NullReferenceException("userServices cannot be null");
+            }
+
             this.gameServices = gameServices;
             this.categoryServices = categoryServices;
             this.checkBoxCategoryModelFactory = checkBoxCategoryModelFactory;
             this.gamesPageViewModelFactory = gamesPageViewModelFactory;
+            this.userServices = userServices;
         }
 
         [HttpGet]
@@ -56,28 +64,28 @@ namespace VideoGameStore.Web.Controllers
 
             IEnumerable<Category> allCategories = this.categoryServices.GetAll();
 
-            IList<CheckBoxCategoryModel> checkBoxes = new List<CheckBoxCategoryModel>();
+            IList<CheckBoxModel> checkBoxes = new List<CheckBoxModel>();
 
             foreach (var category in allCategories)
             {
-                CheckBoxCategoryModel categoryToAdd = this.checkBoxCategoryModelFactory.Create(category.Id, category.Name);
+                CheckBoxModel categoryToAdd = this.checkBoxCategoryModelFactory.Create(category.Id, category.Name);
 
                 checkBoxes.Add(categoryToAdd);
             }
 
-            model.CheckBoxes = checkBoxes;
+            model.CheckBoxesCategories = checkBoxes;
 
             return View("~/Views/Game/GamesPage.cshtml", model);
         }
 
         [HttpPost]
-        public ActionResult SearchByName(GamesPageViewModel model)
+        public ActionResult Search(GamesPageViewModel model)
         {
             bool isSearchEmpty = string.IsNullOrEmpty(model.SearchName);
 
             ICollection<Category> categories = new List<Category>();
 
-            foreach (var cat in model.CheckBoxes)
+            foreach (var cat in model.CheckBoxesCategories)
             {
                 if (cat.Checked)
                 {
@@ -113,6 +121,17 @@ namespace VideoGameStore.Web.Controllers
         [HttpPost]
         public ActionResult AddToCart(int gameId)
         {
+            Game game = this.gameServices.GetById(gameId);
+
+            if (game == null)
+            {
+                return HttpNotFound();
+            }
+
+            ApplicationUser user = this.userServices.GetUser(this.User.Identity.Name);
+
+
+
             return View("~/Views/Game/GamesPage.cshtml");
         }
     }

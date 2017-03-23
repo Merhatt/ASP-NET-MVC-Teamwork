@@ -19,7 +19,7 @@ namespace VideoGameStore.Web.Tests.Factories.CheckBoxCategoryModelFactoryTests
 
             string name = "ivan";
 
-            var factory = new CheckBoxCategoryModelFactory();
+            var factory = new CheckBoxModelFactory();
 
             //Act & Assert
             var msg = Assert.Throws<NullReferenceException>(() => factory.Create(id, name));
@@ -35,7 +35,7 @@ namespace VideoGameStore.Web.Tests.Factories.CheckBoxCategoryModelFactoryTests
 
             string name = null;
 
-            var factory = new CheckBoxCategoryModelFactory();
+            var factory = new CheckBoxModelFactory();
 
             //Act & Assert
             var msg = Assert.Throws<NullReferenceException>(() => factory.Create(id, name));
@@ -51,7 +51,7 @@ namespace VideoGameStore.Web.Tests.Factories.CheckBoxCategoryModelFactoryTests
 
             string name = "";
 
-            var factory = new CheckBoxCategoryModelFactory();
+            var factory = new CheckBoxModelFactory();
 
             //Act & Assert
             var msg = Assert.Throws<NullReferenceException>(() => factory.Create(id, name));
@@ -67,7 +67,7 @@ namespace VideoGameStore.Web.Tests.Factories.CheckBoxCategoryModelFactoryTests
 
             string name = "Ivan";
 
-            var factory = new CheckBoxCategoryModelFactory();
+            var factory = new CheckBoxModelFactory();
 
             //Act
             var model = factory.Create(id, name);

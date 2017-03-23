@@ -50,6 +50,26 @@ namespace VideoGameStore.Data.Migrations
                 }
             }
 
+           string[] platforms =
+           {
+                "PC",
+                "Xbox 360",
+                "Xbox One",
+                "PS3",
+                "PS4",
+                "Nintendo Switch"
+            };
+
+            for (int i = 0; i < platforms.Length; i++)
+            {
+                var platform = platforms[i];
+
+                if (context.Platforms.FirstOrDefault(x => x.Name == platform) == null)
+                {
+                    context.Platforms.Add(new Platform() { Name = platform });
+                }
+            }
+
             context.SaveChanges();
         }
     }
