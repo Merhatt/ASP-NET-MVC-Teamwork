@@ -38,29 +38,47 @@
 </div>
 
 <div class="games">
-    @foreach (var game in this.Model.Games)
+    @if (this.Model.IsSuccessActive)
     {
-        <div class="game-container left">
-            <div class="game-title">
-                <h3><a class="" href="/gameinfo/@game.Id">@Html.Encode(game.Name)</a></h3>
-            </div>
-            <div>
-                <img class="game-img" src="@game.ImageUrl" alt="game image" />
-            </div>
-            <div>
-                <h5>Price: @game.Price$</h5>
-            </div>
-            <div class="text-center-align">
-                @if (User.Identity.IsAuthenticated)
+        <div class="alert alert-success">
+            <strong>Success!</strong> @this.Model.SuccesMessage
+        </div>
+    }
+    <table>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Remove</th>
+        </tr>
+        @foreach (var game in this.Model.Games)
+        {
+            <tr>
+                <td>
+                    <img class="game-img" src="@game.ImageUrl" alt="game img" />
+                </td>
+                <td class="name">
+                    <h3><a class="" href="/gameinfo/@game.Id">@game.Name</a></h3>
+                </td>
+                <td>
+                    <p>@game.Description</p>
+                </td>
+                <td>
+                    <h3>@game.Price</h3>
+                </td>
+                <td>
+                    @if (User.Identity.IsAuthenticated)
                 {
                     using (Html.BeginForm("AddToCart", "GamesPage", new { gameId = game.Id }, FormMethod.Post))
                     {
-                        <button type="submit" class="btn btn-success add">Add</button>
+                            <button type="submit" class="btn btn-success add">Add to Cart</button>
+                        }
                     }
-                }
-            </div>
-        </div>
-    }
+                </td>
+            </tr>
+        }
+    </table>
 
     <div class="clear"></div>
 </div>

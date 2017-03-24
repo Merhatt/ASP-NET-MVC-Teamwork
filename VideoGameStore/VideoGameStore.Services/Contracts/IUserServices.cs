@@ -12,5 +12,7 @@ namespace VideoGameStore.Services.Contracts
         ApplicationUser GetUser(string username);
 
         void AddGameToCart(ApplicationUser user, Game game);
+
+        void RemoveGameFromCart(ApplicationUser user, Game game);
     }
 }

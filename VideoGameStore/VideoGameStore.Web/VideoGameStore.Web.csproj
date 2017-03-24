@@ -201,14 +201,18 @@
     <Compile Include="Controllers\GameInfoController.cs" />
     <Compile Include="Controllers\GamesPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ShopingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AddGameViewModel.cs" />
+    <Compile Include="Models\CartViewModel.cs" />
     <Compile Include="Models\CheckBoxCategoryModel.cs" />
     <Compile Include="Models\Factories\AddGameViewModelFactory.cs" />
+    <Compile Include="Models\Factories\CartViewModelFactory.cs" />
     <Compile Include="Models\Factories\CheckBoxCategoryModelFactory.cs" />
     <Compile Include="Models\Factories\Contracts\IAddGameViewModelFactory.cs" />
+    <Compile Include="Models\Factories\Contracts\ICartViewModelFactory.cs" />
     <Compile Include="Models\Factories\Contracts\ICheckBoxCategoryModelFactory.cs" />
     <Compile Include="Models\Factories\Contracts\IGameInfoViewModelFactory.cs" />
     <Compile Include="Models\Factories\Contracts\IGamesPageViewModelFactory.cs" />
@@ -233,6 +237,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\JS\games-page-paginator.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -270,6 +275,7 @@
     <Content Include="Views\Game\GameInfo.cshtml" />
     <Content Include="Views\Admin\AddGame.cshtml" />
     <None Include="Views\Game\GamesPage.cshtml" />
+    <Content Include="Views\ShopingCart\Cart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

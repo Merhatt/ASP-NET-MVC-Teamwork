@@ -60,5 +60,17 @@ namespace VideoGameStore.Services
 
             return user;
         }
+
+        public void RemoveGameFromCart(ApplicationUser user, Game game)
+        {
+            if (user.ShopingCart.FirstOrDefault(x => x.Id == game.Id) == null)
+            {
+                return;
+            }
+
+            user.ShopingCart.Remove(game);
+
+            this.unitOfWork.Commit();
+        }
     }
 }

@@ -23,6 +23,7 @@ namespace VideoGameStore.Web.App_Start.NinjectModules
             this.Kernel.Bind<IGamesPageViewModelFactory>().To<GamesPageViewModelFactory>().InSingletonScope();
             this.Kernel.Bind<IAddGameViewModelFactory>().To<AddGameViewModelFactory>().InSingletonScope();
             this.Kernel.Bind<IReviewFactory>().To<ReviewFactory>().InSingletonScope();
+            this.Kernel.Bind<ICartViewModelFactory>().To<CartViewModelFactory>().InSingletonScope();
         }
     }
 }

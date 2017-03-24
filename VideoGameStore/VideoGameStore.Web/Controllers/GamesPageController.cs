@@ -58,22 +58,7 @@ namespace VideoGameStore.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            IEnumerable<Game> allGames = this.gameServices.GetAll();
-
-            GamesPageViewModel model = this.gamesPageViewModelFactory.Create(allGames);
-
-            IEnumerable<Category> allCategories = this.categoryServices.GetAll();
-
-            IList<CheckBoxModel> checkBoxes = new List<CheckBoxModel>();
-
-            foreach (var category in allCategories)
-            {
-                CheckBoxModel categoryToAdd = this.checkBoxCategoryModelFactory.Create(category.Id, category.Name);
-
-                checkBoxes.Add(categoryToAdd);
-            }
-
-            model.CheckBoxesCategories = checkBoxes;
+            GamesPageViewModel model = GetDefaultModel();
 
             return View("~/Views/Game/GamesPage.cshtml", model);
         }
@@ -130,9 +115,36 @@ namespace VideoGameStore.Web.Controllers
 
             ApplicationUser user = this.userServices.GetUser(this.User.Identity.Name);
 
+            this.userServices.AddGameToCart(user, game);
 
+            GamesPageViewModel model = GetDefaultModel();
 
-            return View("~/Views/Game/GamesPage.cshtml");
+            model.IsSuccessActive = true;
+            model.SuccesMessage = "Game added to the cart.";
+
+            return View("~/Views/Game/GamesPage.cshtml", model);
+        }
+
+        private GamesPageViewModel GetDefaultModel()
+        {
+            IEnumerable<Game> allGames = this.gameServices.GetAll();
+
+            GamesPageViewModel model = this.gamesPageViewModelFactory.Create(allGames);
+
+            IEnumerable<Category> allCategories = this.categoryServices.GetAll();
+
+            IList<CheckBoxModel> checkBoxes = new List<CheckBoxModel>();
+
+            foreach (var category in allCategories)
+            {
+                CheckBoxModel categoryToAdd = this.checkBoxCategoryModelFactory.Create(category.Id, category.Name);
+
+                checkBoxes.Add(categoryToAdd);
+            }
+
+            model.CheckBoxesCategories = checkBoxes;
+
+            return model;
         }
     }
 }

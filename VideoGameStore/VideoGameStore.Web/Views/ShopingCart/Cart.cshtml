@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model VideoGameStore.Web.Models.CartViewModel
+
+<h2>Cart</h2>
+
+<div>
+    <table>
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Remove</th>
+        </tr>
+        @foreach (var game in this.Model.GamesInCart)
+        {
+            <tr>
+                <td>
+                    <img class="game-img" src="@game.ImageUrl" alt="game img" />
+                </td>
+                <td class="name">
+                    <h3>@game.Name</h3>
+                </td>
+                <td>
+                    <p>@game.Description</p>
+                </td>
+                <td>
+                    <h3>@game.Price</h3>
+                </td>
+                <td>
+                    @using (Html.BeginForm("RemoveFromCart", "ShopingCart", new { gameId = game.Id }, FormMethod.Post))
+                    {
+                        <button type="submit" class="btn btn-danger add">Remove</button>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+</div>

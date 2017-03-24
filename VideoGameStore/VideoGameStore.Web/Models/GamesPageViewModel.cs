@@ -14,5 +14,9 @@ namespace VideoGameStore.Web.Models
         public IEnumerable<Game> Games { get; set; }
 
         public IList<CheckBoxModel> CheckBoxesCategories { get; set; }
+
+        public string SuccesMessage { get; set; }
+
+        public bool IsSuccessActive { get; set; }
     }
 }
