@@ -198,6 +198,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\GameInfoController.cs" />
     <Compile Include="Controllers\GamesPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -208,6 +209,7 @@
     <Compile Include="Models\AddGameViewModel.cs" />
     <Compile Include="Models\CartViewModel.cs" />
     <Compile Include="Models\CheckBoxCategoryModel.cs" />
+    <Compile Include="Models\ErrorPageViewModel.cs" />
     <Compile Include="Models\Factories\AddGameViewModelFactory.cs" />
     <Compile Include="Models\Factories\CartViewModelFactory.cs" />
     <Compile Include="Models\Factories\CheckBoxCategoryModelFactory.cs" />
@@ -240,6 +242,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ErrorPage.css" />
     <Content Include="Content\JS\games-page-paginator.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -277,8 +280,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Game\GameInfo.cshtml" />
     <Content Include="Views\Admin\AddGame.cshtml" />
+    <Content Include="Views\Error\NotFoundError.cshtml" />
+    <Content Include="Views\Error\ServerError.cshtml" />
     <None Include="Views\Game\GamesPage.cshtml" />
     <Content Include="Views\ShopingCart\Cart.cshtml" />
+    <Content Include="Views\Shared\_ErrorPageView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

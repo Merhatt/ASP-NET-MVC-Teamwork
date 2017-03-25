@@ -14,7 +14,7 @@ namespace VideoGameStore.Web.Controllers
 {
     public class ShopingCartController : Controller
     {
-        private const int GamesPerPage = 1;
+        private const int GamesPerPage = 10;
 
         private ICartViewModelFactory cartViewModelFactory;
         private IGameServices gameServices;

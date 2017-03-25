@@ -76,7 +76,7 @@ namespace VideoGameStore.Web.Controllers
 
             if (game == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFoundError", "Error");
             }
 
             ICollection<CheckBoxModel> categories = new HashSet<CheckBoxModel>();
@@ -120,7 +120,7 @@ namespace VideoGameStore.Web.Controllers
 
             if (game == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFoundError", "Error");
             }
 
             ApplicationUser user = this.userServices.GetUser(this.User.Identity.Name);

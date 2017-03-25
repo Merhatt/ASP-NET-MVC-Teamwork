@@ -7,7 +7,7 @@
 @model VideoGameStore.Web.Models.GameInfoViewModel
 
 <div>
-    <h1>@this.Html.Encode(this.Model.Name)</h1>
+    <h1>@this.Model.Name </h1>
 </div>
 <div>
     <img src="@this.Model.ImageUrl" alt="game cover" class="image-url" />
@@ -46,8 +46,8 @@
         <h4>Add Review</h4>
         @using (Html.BeginForm("AddReview", "GameInfo", FormMethod.Post))
         {
-            <div>
-                @Html.TextAreaFor(x => x.ReviewComment, new { @class = "review" });
+            <div class="form-group">
+                @Html.TextAreaFor(x => x.ReviewComment, new { @class = "review form-control", id = "comment" });
             </div>
             <br />
             @Html.HiddenFor(x => x.Id);

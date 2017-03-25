@@ -1,9 +1,10 @@
-﻿@model System.Web.Mvc.HandleErrorInfo
-
+﻿
 @{
-    ViewBag.Title = "Error";
+    ViewBag.Title = "ServerError";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @using VideoGameStore.Web.Models
 
 @Html.Partial("_ErrorPageView", new ErrorPageViewModel() { ErrorCode = "500" })
+
