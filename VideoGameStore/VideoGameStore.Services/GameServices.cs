@@ -78,7 +78,8 @@ namespace VideoGameStore.Services
 
         public IEnumerable<Game> GetAll()
         {
-            return this.repository.All();
+            return this.repository.All()
+                .ToList();
         }
 
         public IEnumerable<Game> GetAll(IEnumerable<Category> categories)
@@ -123,7 +124,8 @@ namespace VideoGameStore.Services
 
             IEnumerable<Game> allGames = GetAll()
                 .Where(x => x.Name.ToLower().Contains(name.ToLower()) || 
-                name.ToLower().Contains(x.Name.ToLower()));
+                name.ToLower().Contains(x.Name.ToLower()))
+                .ToList();
      
             return allGames;
         }
@@ -142,7 +144,8 @@ namespace VideoGameStore.Services
 
             IEnumerable<Game> all = this.GetAll(categories)
                 .Where(x => x.Name.ToLower().Contains(name.ToLower()) ||
-                name.ToLower().Contains(x.Name.ToLower()));
+                name.ToLower().Contains(x.Name.ToLower()))
+                .ToList();
 
             return all;
         }

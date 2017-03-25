@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using VideoGameStore.Utils.Factories;
 using VideoGameStore.Utils.Factories.Contracts;
+using VideoGameStore.Utils.Pagings;
+using VideoGameStore.Utils.Pagings.Contracts;
 using VideoGameStore.Web.Models.Factories;
 using VideoGameStore.Web.Models.Factories.Contracts;
 
@@ -24,6 +26,8 @@ namespace VideoGameStore.Web.App_Start.NinjectModules
             this.Kernel.Bind<IAddGameViewModelFactory>().To<AddGameViewModelFactory>().InSingletonScope();
             this.Kernel.Bind<IReviewFactory>().To<ReviewFactory>().InSingletonScope();
             this.Kernel.Bind<ICartViewModelFactory>().To<CartViewModelFactory>().InSingletonScope();
+            this.Kernel.Bind(typeof(IPageServiceFactory<>)).To(typeof(PageServiceFactory<>)).InSingletonScope();
+            this.Kernel.Bind<IGameModelFactory>().To<GameModelFactory>().InSingletonScope();
         }
     }
 }

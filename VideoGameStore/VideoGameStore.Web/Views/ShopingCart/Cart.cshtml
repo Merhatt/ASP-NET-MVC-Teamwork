@@ -33,7 +33,7 @@
                     <h3>@game.Price</h3>
                 </td>
                 <td>
-                    @using (Html.BeginForm("RemoveFromCart", "ShopingCart", new { gameId = game.Id }, FormMethod.Post))
+                    @using (Html.BeginForm("RemoveFromCart", "ShopingCart", new { gameId = game.Id, page = this.Model.PageNow }, FormMethod.Post))
                     {
                         <button type="submit" class="btn btn-danger add">Remove</button>
                     }
@@ -41,4 +41,34 @@
             </tr>
         }
     </table>
+    <div class="pagination">
+        @using (Html.BeginForm("PageChange", "ShopingCart", new { page = this.Model.PageNow - 1 }, FormMethod.Post, new { id = "left", @class = "left" }))
+        {
+            <input type="hidden" name="name" value="value" />
+            <a onclick="document.getElementById('left').submit();">&laquo;</a>
+        }
+
+        @for (int i = 1; i <= this.Model.MaxPages; i++)
+        {
+            using (Html.BeginForm("PageChange", "ShopingCart", new { page = i }, FormMethod.Post, new { id = "myform"+i, @class="left" }))
+            {
+                <input type="hidden" name="name" value="value" />
+                if (this.Model.PageNow == i)
+                {
+                    <a onclick="document.getElementById('@("myform" + i)').submit();" class="active">@i</a>
+                }
+                else
+                {
+                    <a onclick="document.getElementById('@("myform" + i)').submit();">@i</a>
+                }
+            }
+        }
+
+        @using (Html.BeginForm("PageChange", "ShopingCart", new { page = this.Model.PageNow + 1 }, FormMethod.Post, new { id = "right", @class = "left" }))
+        {
+            <input type="hidden" name="name" value="value" />
+            <a onclick="document.getElementById('right').submit();">&raquo;</a>
+        }
+    </div>
+    <div class="clear"></div>
 </div>

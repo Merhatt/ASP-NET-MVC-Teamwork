@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using VideoGameStore.Services;
 using VideoGameStore.Services.Contracts;
+using VideoGameStore.Utils.Pagings;
+using VideoGameStore.Utils.Pagings.Contracts;
 
 namespace VideoGameStore.Web.App_Start.NinjectModules
 {
@@ -17,6 +19,7 @@ namespace VideoGameStore.Web.App_Start.NinjectModules
             this.Kernel.Bind<IPlatformServices>().To<PlatformServices>();
             this.Kernel.Bind<IUserServices>().To<UserServices>();
             this.Kernel.Bind<IReviewServices>().To<ReviewServices>();
+            this.Kernel.Bind(typeof(IPageService<>)).To(typeof(PageService<>));
         }
     }
 }

@@ -42,9 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factories\Contracts\IGameFactory.cs" />
+    <Compile Include="Factories\Contracts\IPageServiceFactory.cs" />
     <Compile Include="Factories\Contracts\IReviewFactory.cs" />
     <Compile Include="Factories\GameFactory.cs" />
+    <Compile Include="Factories\PageServiceFactory.cs" />
     <Compile Include="Factories\ReviewFactory.cs" />
+    <Compile Include="Pagings\Contracts\IPageService.cs" />
+    <Compile Include="Pagings\PageService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

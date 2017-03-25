@@ -25,7 +25,7 @@ namespace VideoGameStore.Services
 
         public IEnumerable<Platform> GetAll()
         {
-            IEnumerable<Platform> allPlatforms = this.repository.All();
+            IEnumerable<Platform> allPlatforms = this.repository.All().ToList();
 
             return allPlatforms;
         }

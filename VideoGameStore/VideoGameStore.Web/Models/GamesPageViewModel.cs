@@ -17,6 +17,8 @@ namespace VideoGameStore.Web.Models
 
         public string SuccesMessage { get; set; }
 
+        public bool IsSearchPage { get; set; }
+
         public bool IsSuccessActive { get; set; }
     }
 }
