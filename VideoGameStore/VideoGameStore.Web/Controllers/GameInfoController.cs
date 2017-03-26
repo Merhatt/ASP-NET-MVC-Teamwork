@@ -21,8 +21,7 @@ namespace VideoGameStore.Web.Controllers
         private IUserServices userServices;
 
         public GameInfoController(IGameServices gameServices, IUserServices userServices, 
-            IReviewServices reviewServices,
-            IGameInfoViewModelFactory gameInfoViewModelFactory, 
+            IReviewServices reviewServices, IGameInfoViewModelFactory gameInfoViewModelFactory, 
             ICheckBoxModelFactory checkBoxCategoryModelFactory, ISuportedPlatformModelFactory suportedPlatformModelFactory,
             IReviewModelFactory reviewModelFactory)
         {
@@ -119,7 +118,7 @@ namespace VideoGameStore.Web.Controllers
         {
             Game game = this.gameServices.GetById(model.Id);
 
-            if (game == null)
+            if (game == null || string.IsNullOrEmpty(model.ReviewComment))
             {
                 return RedirectToAction("NotFoundError", "Error");
             }

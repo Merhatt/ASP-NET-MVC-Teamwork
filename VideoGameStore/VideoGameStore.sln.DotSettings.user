@@ -1,4 +1,7 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Boolean x:Key="/Default/CoverageSessionsPersistenceManagerSettings/SessionPersistentData/=78ECBF57A9DA4AACA3D84FE69FC9F956/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/CoverageSessionsPersistenceManagerSettings/SessionPersistentData/=78ECBF57A9DA4AACA3D84FE69FC9F956/ProductVersion/@EntryValue">2016.3.2</s:String>
+	<s:String x:Key="/Default/CoverageSessionsPersistenceManagerSettings/SessionPersistentData/=78ECBF57A9DA4AACA3D84FE69FC9F956/SnapshotLocation/@EntryValue">C:\Users\Merhat\AppData\Local\Temp\ssm.Qysulaf.tmp</s:String>
 	<s:Boolean x:Key="/Default/CoverageSessionsPersistenceManagerSettings/SessionPersistentData/=DF62CF56896B41D89DF4576180754119/@KeyIndexDefined">True</s:Boolean>
-	<s:String x:Key="/Default/CoverageSessionsPersistenceManagerSettings/SessionPersistentData/=DF62CF56896B41D89DF4576180754119/SnapshotLocation/@EntryValue">C:\Users\Merhat\AppData\Local\Temp\ssm.Hytohex.tmp</s:String>
+	<s:String x:Key="/Default/CoverageSessionsPersistenceManagerSettings/SessionPersistentData/=DF62CF56896B41D89DF4576180754119/SnapshotLocation/@EntryValue">C:\Users\Merhat\AppData\Local\Temp\ssm.Kicovaz.tmp</s:String>
 	<s:String x:Key="/Default/CoverageSessionsPersistenceManagerSettings/SessionPersistentData/=DF62CF56896B41D89DF4576180754119/ProductVersion/@EntryValue">2016.3.2</s:String></wpf:ResourceDictionary>

@@ -73,12 +73,19 @@
   <ItemGroup>
     <Compile Include="Controllers\AdminControllerTests\AddGameTests.cs" />
     <Compile Include="Controllers\AdminControllerTests\ConstructorTests.cs" />
+    <Compile Include="Controllers\GameInfoControllerTests\AddReviewTests.cs" />
+    <Compile Include="Controllers\GameInfoControllerTests\ConstructorTests.cs" />
+    <Compile Include="Controllers\GameInfoControllerTests\IndexTests.cs" />
     <Compile Include="Controllers\GamesPageControllerTests\AddToCartTests.cs" />
     <Compile Include="Controllers\GamesPageControllerTests\ContstructorTests.cs" />
     <Compile Include="Controllers\GamesPageControllerTests\GetGamesOnPageTests.cs" />
     <Compile Include="Controllers\GamesPageControllerTests\GetPagesCountTests.cs" />
     <Compile Include="Controllers\GamesPageControllerTests\IndexTests.cs" />
     <Compile Include="Controllers\GamesPageControllerTests\SearchTests.cs" />
+    <Compile Include="Controllers\ShopingCartControllerTests\ConstructorTests.cs" />
+    <Compile Include="Controllers\ShopingCartControllerTests\IndexTests.cs" />
+    <Compile Include="Controllers\ShopingCartControllerTests\PageChangeTests.cs" />
+    <Compile Include="Controllers\ShopingCartControllerTests\RemoveFromCartTests.cs" />
     <Compile Include="Factories\AddGameViewModelFactoryTests\CreateTests.cs" />
     <Compile Include="Factories\CartViewModelFactoryTests\CreateTests.cs" />
     <Compile Include="Factories\CheckBoxCategoryModelFactoryTests\CreateTests.cs" />
