@@ -61,6 +61,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -72,8 +73,12 @@
   <ItemGroup>
     <Compile Include="Controllers\AdminControllerTests\AddGameTests.cs" />
     <Compile Include="Controllers\AdminControllerTests\ConstructorTests.cs" />
+    <Compile Include="Controllers\GamesPageControllerTests\AddToCartTests.cs" />
     <Compile Include="Controllers\GamesPageControllerTests\ContstructorTests.cs" />
+    <Compile Include="Controllers\GamesPageControllerTests\GetGamesOnPageTests.cs" />
+    <Compile Include="Controllers\GamesPageControllerTests\GetPagesCountTests.cs" />
     <Compile Include="Controllers\GamesPageControllerTests\IndexTests.cs" />
+    <Compile Include="Controllers\GamesPageControllerTests\SearchTests.cs" />
     <Compile Include="Factories\AddGameViewModelFactoryTests\CreateTests.cs" />
     <Compile Include="Factories\CartViewModelFactoryTests\CreateTests.cs" />
     <Compile Include="Factories\CheckBoxCategoryModelFactoryTests\CreateTests.cs" />

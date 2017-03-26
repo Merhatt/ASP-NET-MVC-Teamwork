@@ -20,7 +20,8 @@ namespace VideoGameStore.Web.Controllers
         private IReviewServices reviewServices;
         private IUserServices userServices;
 
-        public GameInfoController(IGameServices gameServices, IUserServices userServices, IReviewServices reviewServices,
+        public GameInfoController(IGameServices gameServices, IUserServices userServices, 
+            IReviewServices reviewServices,
             IGameInfoViewModelFactory gameInfoViewModelFactory, 
             ICheckBoxModelFactory checkBoxCategoryModelFactory, ISuportedPlatformModelFactory suportedPlatformModelFactory,
             IReviewModelFactory reviewModelFactory)
