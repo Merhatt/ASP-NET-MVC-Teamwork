@@ -89,6 +89,11 @@ namespace VideoGameStore.Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult AddGame(AddGameViewModel model)
         {
+            if (model == null)
+            {
+                return AddGame();
+            }
+
             bool isErrorFound = false;
 
             if (string.IsNullOrEmpty(model.Name) ||
