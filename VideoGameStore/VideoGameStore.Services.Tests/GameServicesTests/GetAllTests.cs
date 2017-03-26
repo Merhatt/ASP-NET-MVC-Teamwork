@@ -317,6 +317,59 @@ namespace VideoGameStore.Services.Tests.GameServicesTests
         }
 
         [Test]
+        public void WithName_WithCategories_NullName_ShouldThrow()
+        {
+            //Arrange
+            var repositoryMock = new Mock<IRepository<Game>>();
+            var unitOfWorkMock = new Mock<IUnitOfWork>();
+            var gameFactoryMock = new Mock<IGameFactory>();
+
+            var allGames = new List<Game>();
+            allGames.Add(new Game());
+
+            repositoryMock.Setup(x => x.All()).Returns(allGames.AsQueryable());
+
+            GameServices services = new GameServices(repositoryMock.Object, unitOfWorkMock.Object, gameFactoryMock.Object);
+
+            string name = null;
+
+            ICollection<Category> categories = new List<Category>();
+            categories.Add(new Category());
+
+            //Act & Assert
+            var msg = Assert.Throws<NullReferenceException>(() => services.GetAll(categories, name));
+
+            Assert.AreEqual("name cannot be null or empty", msg.Message);
+        }
+
+
+        [Test]
+        public void WithName_WithCategories_EmptyName_ShouldThrow()
+        {
+            //Arrange
+            var repositoryMock = new Mock<IRepository<Game>>();
+            var unitOfWorkMock = new Mock<IUnitOfWork>();
+            var gameFactoryMock = new Mock<IGameFactory>();
+
+            var allGames = new List<Game>();
+            allGames.Add(new Game());
+
+            repositoryMock.Setup(x => x.All()).Returns(allGames.AsQueryable());
+
+            GameServices services = new GameServices(repositoryMock.Object, unitOfWorkMock.Object, gameFactoryMock.Object);
+
+            string name = "";
+
+            ICollection<Category> categories = new List<Category>();
+            categories.Add(new Category());
+
+            //Act & Assert
+            var msg = Assert.Throws<NullReferenceException>(() => services.GetAll(categories, name));
+
+            Assert.AreEqual("name cannot be null or empty", msg.Message);
+        }
+
+        [Test]
         public void WithName_WithCategories_ShouldGetCorrectly()
         {
             //Arrange

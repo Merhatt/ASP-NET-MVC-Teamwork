@@ -9,3 +9,12 @@ C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\Video
 C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\bin\Debug\Moq.dll
 C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\bin\Debug\Castle.Core.xml
 C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\bin\Debug\Moq.xml
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\bin\Debug\VideoGameStore.Data.Tests.dll.config
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\bin\Debug\EntityFramework.dll
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\bin\Debug\EntityFramework.xml
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Merhat\Desktop\ASPMVCTeamwork\ASP-NET-MVC-Teamwork\VideoGameStore\VideoGameStore.Data.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml

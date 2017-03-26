@@ -55,6 +55,11 @@ namespace VideoGameStore.Services
 
         public ApplicationUser GetUser(string username)
         {
+            if (string.IsNullOrEmpty(username))
+            {
+                throw new NullReferenceException("username cannot be null or empty");
+            }
+
             ApplicationUser user = this.repository.All()
                 .FirstOrDefault(x => x.UserName == username);
 
@@ -63,6 +68,16 @@ namespace VideoGameStore.Services
 
         public void RemoveGameFromCart(ApplicationUser user, Game game)
         {
+            if (user == null)
+            {
+                throw new NullReferenceException("user cannot be null");
+            }
+
+            if (game == null)
+            {
+                throw new NullReferenceException("game cannot be null");
+            }
+
             if (user.ShopingCart.FirstOrDefault(x => x.Id == game.Id) == null)
             {
                 return;

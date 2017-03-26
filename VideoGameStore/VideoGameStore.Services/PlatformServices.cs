@@ -32,6 +32,11 @@ namespace VideoGameStore.Services
 
         public Platform GetById(int id)
         {
+            if (id < 0)
+            {
+                throw new NullReferenceException("id cannot be less than 0");
+            }
+
             Platform platform = this.repository.GetById(id);
 
             return platform;

@@ -68,7 +68,7 @@ $(".games").on('click', function (ev) {
                 newGameTableHTML += '<th>Name</th>';
                 newGameTableHTML += '<th>Description</th>';
                 newGameTableHTML += '<th>Price</th>';
-                newGameTableHTML += '<th>Remove</th>';
+                newGameTableHTML += '<th>Add to Cart</th>';
                 newGameTableHTML += '</tr>';
 
                 for (var i = 0; i < response.games.length; i++) {
