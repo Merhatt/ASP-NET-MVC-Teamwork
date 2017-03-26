@@ -50,7 +50,10 @@
             <th>Name</th>
             <th>Description</th>
             <th>Price</th>
-            <th>Add to Cart</th>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <th>Add to Cart</th>
+            }
         </tr>
         @foreach (var game in this.Model.Games)
         {
@@ -67,15 +70,15 @@
                 <td>
                     <h3>$@game.Price</h3>
                 </td>
-                <td>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        using (Html.BeginForm("AddToCart", "GamesPage", new { gameId = game.Id }, FormMethod.Post))
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <td>
+                        @using (Html.BeginForm("AddToCart", "GamesPage", new { gameId = game.Id }, FormMethod.Post))
                         {
                             <button type="submit" class="btn btn-success add">Add to Cart</button>
                         }
-                    }
-                </td>
+                    </td>
+                }
             </tr>
         }
     </table>
@@ -91,8 +94,7 @@
         </div>
     }
 </div>
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
 <script src="~/Content/JS/games-page-paginator.js"></script>
