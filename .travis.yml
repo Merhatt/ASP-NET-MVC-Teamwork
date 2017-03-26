@@ -1,8 +1,8 @@
 language: csharp
-solution: VideoGameStore.sln
+solution: /VideoGameStore/VideoGameStore.sln
 install:
-  - nuget restore VideoGameStore.sln
+  - nuget restore /VideoGameStore/VideoGameStore.sln
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
-  - xbuild /p:Configuration=Release VideoGameStore.sln
+  - xbuild /p:Configuration=Release /VideoGameStore/VideoGameStore.sln
   - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./VideoGameStore.Web.Tests/bin/Release/VideoGameStore.Web.Tests.dll
