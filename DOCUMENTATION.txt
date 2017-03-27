@@ -1,0 +1,12 @@
+Ostrem is a video game store where you can buy video games.
+You can add the games to the cart or remove them from the cart.
+You can view detailed information for every game.
+You can leave review on games
+
+Used technologies:
+ASP.NET MVC
+JQuery
+JS
+CSS
+HTML
+AJAX
