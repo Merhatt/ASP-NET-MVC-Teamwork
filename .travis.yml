@@ -2,3 +2,7 @@ language: csharp
 solution: VideoGameStore/VideoGameStore.sln
 script:
   - mono ./VideoGameStore/packages/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe ./VideoGameStore/VideoGameStore.Web.Tests/bin/Debug/VideoGameStore.Web.Tests.dll
+  - mono ./VideoGameStore/packages/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe ./VideoGameStore/VideoGameStore.Utils.Tests/bin/Debug/VideoGameStore.Utils.Tests.dll
+  - mono ./VideoGameStore/packages/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe ./VideoGameStore/VideoGameStore.Services.Tests/bin/Debug/VideoGameStore.Services.Tests.dll
+  - mono ./VideoGameStore/packages/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe ./VideoGameStore/VideoGameStore.Data.Tests/bin/Debug/VideoGameStore.Data.Tests.dll
+  - mono ./VideoGameStore/packages/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe ./VideoGameStore/VideoGameStore.Data.Models.Tests/bin/Debug/VideoGameStore.Data.Models.Tests.dll
