@@ -14,13 +14,6 @@ CSS
 HTML
 AJAX
 
-### Tech
-Code Warfares uses a number of technologies to work properly:
-
-* ASP.NET Web Forms
-* Entity Framework
-* JQuery
-
 ### Installation
 
 To host the ASP.NET server you can use IIS on Windows
